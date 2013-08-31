@@ -1,3 +1,4 @@
+package test.dlmu.proxy;
 /**
  * 计算协议
  * @author hadoop

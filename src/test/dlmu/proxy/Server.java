@@ -1,3 +1,4 @@
+package test.dlmu.proxy;
 
 public class Server implements CalculatorProtocol {
 
