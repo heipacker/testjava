@@ -8,10 +8,12 @@
  * ===========================================================================
  */
 
-/**** CodeSource- and Subject-based policy file for JAAS HelloWorld ****/
+/**** CodeSource-based policy file for JAAS HelloWorld ****/
 
-grant Principal com.ibm.security.HWPrincipal "bob" {
-   permission java.util.PropertyPermission "java.home", "read";
-   permission java.util.PropertyPermission "user.home", "read";
-   permission java.io.FilePermission "foo.txt", "read";
+grant codebase "file:./TestJaas.jar" {
+    permission javax.security.auth.AuthPermission "modifyPrincipals";
+};
+
+grant codebase "file:./TestJaas.jar" {
+   permission javax.security.auth.AuthPermission "createLoginContext.Sample";
 };
