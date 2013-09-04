@@ -22,7 +22,7 @@ public class MainTest {
 	}
 
 	private static void manage() throws Exception {
-		Long upTime = (Long) mBeanServer.getAttribute(objectName, "upTime");
+		Long upTime = (Long) mBeanServer.getAttribute(objectName, "UpTime");
 		System.out.println(upTime);
 	}
 }

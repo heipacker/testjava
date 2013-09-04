@@ -10,10 +10,10 @@
 
 /**** CodeSource-based policy file for JAAS HelloWorld ****/
 
-grant codebase "file:./TestJaas.jar" {
+grant {
     permission javax.security.auth.AuthPermission "modifyPrincipals";
 };
 
-grant codebase "file:./TestJaas.jar" {
+grant {
    permission javax.security.auth.AuthPermission "createLoginContext.Sample";
 };

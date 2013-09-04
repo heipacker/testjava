@@ -10,9 +10,4 @@ public class ServerMonitor implements ServerMonitorMBean {
 	public long getUpTime() {
 		return System.currentTimeMillis() - target.startTime;
 	}
-
-	@Override
-	public void setUpTime(long upTime) {
-		target.startTime = upTime;
-	}
 }

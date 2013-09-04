@@ -9,49 +9,49 @@ public class LoginManager {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// Obtain a LoginContext, needed for authentication.
+		// Tell it to use the LoginModule implementation
+		// specified by the entry named "Sample" in the
+		// JAAS login configuration file and to also use the
+		// specified CallbackHandler.
 		LoginContext lc = null;
 		try {
-			// 此处指定了使用配置文件的“Sample”验证模块，对应的实现类为SampleLoginModule
-			lc = new LoginContext("JaasSample", new SampleCallbackHandler("username", "password"));
-			//lc = new LoginContext("hadoop-simple", null, null, new HadoopConfiguration());
-		} catch (LoginException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lc = new LoginContext("Sample", new SampleCallbackHandler("userName","password"));
+		} catch (LoginException le) {
+			System.err.println("Cannot create LoginContext. " + le.getMessage());
+			System.exit(-1);
+		} catch (SecurityException se) {
+			System.err.println("Cannot create LoginContext. " + se.getMessage());
+			System.exit(-1);
 		}
-		try {
-			lc.login();
-		} catch (LoginException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		// the user has 3 attempts to authenticate successfully
+		int i;
+		for (i = 0; i < 3; i++) {
+			try {
+				// attempt authentication
+				lc.login();
+
+				// if we return with no exception,
+				// authentication succeeded
+				break;
+			} catch (LoginException le) {
+				System.err.println("Authentication failed:");
+				System.err.println("  " + le.getMessage());
+				try {
+					Thread.sleep(3000);
+				} catch (Exception e) {
+					// ignore
+				}
+			}
 		}
-	}
-/*	private static String OS_LOGIN_MODULE_NAME;
-	
-	static {
-		OS_LOGIN_MODULE_NAME = getOSLoginModuleName();
-	}
-	 Return the OS login module class name 
-	private static String getOSLoginModuleName() {
-		return "com.sun.security.auth.module.NTLoginModule";
-	}
-	*//**
-	 * A JAAS configuration that defines the login modules that we want to use
-	 * for login.
-	 *//*
-	private static class HadoopConfiguration extends javax.security.auth.login.Configuration {
-		private static final String SIMPLE_CONFIG_NAME = "hadoop-simple";
 
-		private static final AppConfigurationEntry OS_SPECIFIC_LOGIN = new AppConfigurationEntry(OS_LOGIN_MODULE_NAME, LoginModuleControlFlag.REQUIRED, new HashMap<String, String>());
-		private static final AppConfigurationEntry HADOOP_LOGIN = new AppConfigurationEntry(SampleCallbackHandler.class.getName(), LoginModuleControlFlag.REQUIRED, new HashMap<String, String>());
-
-		private static final AppConfigurationEntry[] SIMPLE_CONF = new AppConfigurationEntry[] { OS_SPECIFIC_LOGIN, HADOOP_LOGIN };
-
-		@Override
-		public AppConfigurationEntry[] getAppConfigurationEntry(String appName) {
-			if (SIMPLE_CONFIG_NAME.equals(appName)) {
-				return SIMPLE_CONF;
-			} 
-			return null;
+		// did they fail three times?
+		if (i == 3) {
+			System.out.println("Sorry");
+			System.exit(-1);
 		}
-	}*/
+
+		System.out.println("Authentication succeeded!");
+	}
 }

@@ -13,6 +13,7 @@ public class JaasAcn {
 		// the entry named "JaasSample" in the JAAS login
 		// configuration file and to also use the specified
 		// CallbackHandler.
+		// com.sun.security.auth.module.Krb5LoginModule required;
 		LoginContext lc = null;
 		try {
 			lc = new LoginContext("JaasSample", new TextCallbackHandler());
@@ -25,9 +26,7 @@ public class JaasAcn {
 		}
 
 		try {
-			// attempt authentication
 			lc.login();
-
 		} catch (LoginException le) {
 			System.err.println("Authentication failed: ");
 			System.err.println("  " + le.getMessage());
