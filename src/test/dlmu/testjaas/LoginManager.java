@@ -4,7 +4,15 @@ import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 
 public class LoginManager {
-
+	//把所有文件放在C盘下
+	//文件的结构如下：
+	//./
+	//	TestJaas.jar
+	//	jaas.config
+	//	jaas.policy
+	//java -classpath TestJaas.jar -Djava.security.manager \
+	//-Djava.security.policy=jaas.policy \
+	//-Djava.security.auth.login.config==jaas.config test.dlmu.testjaas.LoginManager
 	/**
 	 * @param args
 	 */
@@ -14,9 +22,9 @@ public class LoginManager {
 		// specified by the entry named "Sample" in the
 		// JAAS login configuration file and to also use the
 		// specified CallbackHandler.
-		LoginContext lc = null;
+		LoginContext lcx = null;
 		try {
-			lc = new LoginContext("Sample", new SampleCallbackHandler("userName","password"));
+			lcx = new LoginContext("Sample", new SampleCallbackHandler("userName","password"));
 		} catch (LoginException le) {
 			System.err.println("Cannot create LoginContext. " + le.getMessage());
 			System.exit(-1);
@@ -30,10 +38,8 @@ public class LoginManager {
 		for (i = 0; i < 3; i++) {
 			try {
 				// attempt authentication
-				lc.login();
-
-				// if we return with no exception,
-				// authentication succeeded
+				lcx.login();
+				// if we return with no exception, authentication succeeded
 				break;
 			} catch (LoginException le) {
 				System.err.println("Authentication failed:");

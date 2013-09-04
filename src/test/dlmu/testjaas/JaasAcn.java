@@ -16,7 +16,7 @@ public class JaasAcn {
 		// com.sun.security.auth.module.Krb5LoginModule required;
 		LoginContext lc = null;
 		try {
-			lc = new LoginContext("JaasSample", new TextCallbackHandler());
+			lc = new LoginContext("Sample", new TextCallbackHandler());
 		} catch (LoginException le) {
 			System.err.println("Cannot create LoginContext. " + le.getMessage());
 			System.exit(-1);

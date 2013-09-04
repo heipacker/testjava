@@ -9,11 +9,9 @@
  */
 
 /**** CodeSource-based policy file for JAAS HelloWorld ****/
-
-grant {
-    permission javax.security.auth.AuthPermission "modifyPrincipals";
-};
-
 grant {
    permission javax.security.auth.AuthPermission "createLoginContext.Sample";
+   permission javax.security.auth.AuthPermission "doAsPrivileged";
+   permission javax.security.auth.AuthPermission "modifyPrincipals";
 };
+
