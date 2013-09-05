@@ -1,4 +1,4 @@
-package test.dlmu.testjaas;
+package test.dlmu.testjaas.authentication;
 
 import java.io.IOException;
 
@@ -11,9 +11,7 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 public class SampleCallbackHandler implements CallbackHandler {
 	private String username;
 	private String password;
-	public SampleCallbackHandler() {
-		
-	}
+
 	public SampleCallbackHandler(final String username, final String password) {
 		this.username = username;
 		this.password = password;

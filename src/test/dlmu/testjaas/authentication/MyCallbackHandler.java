@@ -1,4 +1,4 @@
-package test.dlmu.testjaas;
+package test.dlmu.testjaas.authentication;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,17 +49,17 @@ class MyCallbackHandler implements CallbackHandler {
 				// display the message according to the specified type
 				TextOutputCallback toc = (TextOutputCallback) callbacks[i];
 				switch (toc.getMessageType()) {
-				case TextOutputCallback.INFORMATION:
-					System.out.println(toc.getMessage());
-					break;
-				case TextOutputCallback.ERROR:
-					System.out.println("ERROR: " + toc.getMessage());
-					break;
-				case TextOutputCallback.WARNING:
-					System.out.println("WARNING: " + toc.getMessage());
-					break;
-				default:
-					throw new IOException("Unsupported message type: " + toc.getMessageType());
+					case TextOutputCallback.INFORMATION:
+						System.out.println(toc.getMessage());
+						break;
+					case TextOutputCallback.ERROR:
+						System.out.println("ERROR: " + toc.getMessage());
+						break;
+					case TextOutputCallback.WARNING:
+						System.out.println("WARNING: " + toc.getMessage());
+						break;
+					default:
+						throw new IOException("Unsupported message type: " + toc.getMessageType());
 				}
 			} else if (callbacks[i] instanceof NameCallback) {
 				// prompt the user for a username
@@ -82,10 +82,8 @@ class MyCallbackHandler implements CallbackHandler {
 
 	// Reads user password from given input stream.
 	private char[] readPassword(InputStream in) throws IOException {
-
 		char[] lineBuffer;
 		char[] buf;
-		int i;
 
 		buf = lineBuffer = new char[128];
 

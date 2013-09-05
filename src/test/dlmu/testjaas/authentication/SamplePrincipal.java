@@ -1,4 +1,4 @@
-package test.dlmu.testjaas;
+package test.dlmu.testjaas.authentication;
 
 import java.security.Principal;
 
@@ -21,5 +21,9 @@ public final class SamplePrincipal implements Principal {
 	public int hashCode() {
 		return name.toUpperCase().hashCode();
 	}
-
+	
+	public String toString(){
+		
+		return name;
+	}
 }

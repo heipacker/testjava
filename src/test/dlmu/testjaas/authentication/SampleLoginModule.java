@@ -1,4 +1,4 @@
-package test.dlmu.testjaas;
+package test.dlmu.testjaas.authentication;
 
 import java.io.IOException;
 import java.util.Map;
@@ -32,6 +32,7 @@ public class SampleLoginModule implements LoginModule {
 			// 获取用户数据
 			callbackHandler.handle(calls);
 			String username = nameCallback.getName();
+			@SuppressWarnings("unused")
 			String password = String.valueOf(passwordCallback.getPassword());
 
 			// TODO 验证，如：查询数据库、LDAP。。。

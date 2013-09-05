@@ -1,5 +1,9 @@
-package test.dlmu.testjaas;
+package test.dlmu.testjaas.authentication;
 
+import java.security.AccessControlContext;
+import java.security.AccessController;
+
+import javax.security.auth.Subject;
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 
@@ -24,7 +28,8 @@ public class LoginManager {
 		// specified CallbackHandler.
 		LoginContext lcx = null;
 		try {
-			lcx = new LoginContext("Sample", new SampleCallbackHandler("userName","password"));
+			Subject subject = new Subject();
+			lcx = new LoginContext("Sample", subject, new SampleCallbackHandler("userName","password"));
 		} catch (LoginException le) {
 			System.err.println("Cannot create LoginContext. " + le.getMessage());
 			System.exit(-1);
@@ -57,7 +62,20 @@ public class LoginManager {
 			System.out.println("Sorry");
 			System.exit(-1);
 		}
-
+		//放回当前线程的AccessControlContext
+		AccessControlContext acc = AccessController.getContext();
+		//一个AccessControlContext包含很多个Subject 此方法返回最近使用的那个
+		Subject sub = Subject.getSubject(acc);
+		if(sub!=null){
+			System.out.println("is not null");
+		}
+		
+		Subject subject = lcx.getSubject();
+		if(subject!=null){
+			System.out.println("is not null");
+			System.out.println(subject.getPrincipals().toString());
+			System.out.println("is read only:"+subject.isReadOnly());
+		}
 		System.out.println("Authentication succeeded!");
 	}
 }

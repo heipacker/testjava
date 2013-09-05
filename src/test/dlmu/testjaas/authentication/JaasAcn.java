@@ -1,9 +1,7 @@
-package test.dlmu.testjaas;
+package test.dlmu.testjaas.authentication;
 
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
-
-import com.sun.security.auth.callback.TextCallbackHandler;
 
 public class JaasAcn {
 
@@ -16,7 +14,7 @@ public class JaasAcn {
 		// com.sun.security.auth.module.Krb5LoginModule required;
 		LoginContext lc = null;
 		try {
-			lc = new LoginContext("Sample", new TextCallbackHandler());
+			lc = new LoginContext("Sample", new MyCallbackHandler());
 		} catch (LoginException le) {
 			System.err.println("Cannot create LoginContext. " + le.getMessage());
 			System.exit(-1);
