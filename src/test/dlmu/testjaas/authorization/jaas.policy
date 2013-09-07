@@ -8,11 +8,19 @@
  * ===========================================================================
  */
 
-/**** CodeSource-based policy file for JAAS HelloWorld ****/
+/**
+ ** CodeSource-based policy file for JAAS HelloWorld 
+ **/
 grant {
-   permission javax.security.auth.AuthPermission "createLoginContext.Sample";
+   permission javax.security.auth.AuthPermission "createLoginContext.JaasSample";
    permission javax.security.auth.AuthPermission "doAsPrivileged";
-   permission javax.security.auth.AuthPermission "modifyPrincipals";
-   permission javax.security.auth.AuthPermission "getSubject";
 };
-
+/** 
+ **	User-Based Access Control Policy for the SampleAction class
+ ** instantiated by JaasAzn 
+ **/
+grant Principal javax.security.auth.kerberos.KerberosPrincipal "your_user_name@your_realm" {
+   permission java.util.PropertyPermission "java.home", "read";
+   permission java.util.PropertyPermission "user.home", "read";
+   permission java.io.FilePermission "foo.txt", "read";
+};

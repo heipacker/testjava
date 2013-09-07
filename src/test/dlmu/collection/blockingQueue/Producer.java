@@ -21,7 +21,7 @@ class Producer implements Runnable {
 			for (String s : messages){
 				drop.put(s);
 				try {
-					Thread.sleep(1000*2);
+					Thread.sleep(1000*1);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -19,7 +19,7 @@ class Consumer implements Runnable {
 			while (!((msg = drop.take()).equals("DONE"))){
 				System.out.println(msg);
 				try {
-					Thread.sleep(1000*2);
+					Thread.sleep(1000*1);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

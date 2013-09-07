@@ -13,7 +13,7 @@ public class SynchronousQueueTest {
         (new Thread(new Producer(drop))).start();
         (new Thread(new Consumer(drop))).start();
         try {
-			Thread.sleep(1000*60);
+			Thread.sleep(1000*30);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -46,8 +46,9 @@ import java.security.PrivilegedAction;
 /**
  * This is a sample PrivilegedAction implementation, designed to be used with
  * the JaasAzn class.
+ * @param <T>
  */
-public class SampleAction implements PrivilegedAction {
+public class SampleAction<T> implements PrivilegedAction<T> {
 
 	/**
 	 * This sample PrivilegedAction performs the following operations:
@@ -63,7 +64,7 @@ public class SampleAction implements PrivilegedAction {
 	 *                if the caller does not have permission to perform any of
 	 *                the operations listed above.
 	 */
-	public Object run() {
+	public T run() {
 		System.out.println("\nYour java.home property value is: " + System.getProperty("java.home"));
 
 		System.out.println("\nYour user.home property value is: " + System.getProperty("user.home"));

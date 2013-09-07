@@ -71,12 +71,9 @@ public class JaasAzn {
 		}
 
 		try {
-
 			// attempt authentication
 			lc.login();
-
 		} catch (LoginException le) {
-
 			System.err.println("Authentication failed:");
 			System.err.println("  " + le.getMessage());
 			System.exit(-1);
@@ -87,8 +84,9 @@ public class JaasAzn {
 
 		// now try to execute the SampleAction as the authenticated Subject
 		Subject mySubject = lc.getSubject();
-		PrivilegedAction action = new SampleAction();
-		Subject.doAsPrivileged(mySubject, action, null);
-
+		PrivilegedAction<SimpleUser> action = new SampleAction<SimpleUser>();
+		
+		SimpleUser simple = Subject.doAsPrivileged(mySubject, action, null);
+		System.out.println("userName:"+simple.getUserName());
 	}
 }
