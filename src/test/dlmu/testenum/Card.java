@@ -33,7 +33,22 @@ public class Card {
 	public String toString() {
 		return rank + " of " + suit;
 	}
+	
+	private static Map<Suit, Map<Rank, Card>> table = new EnumMap<Suit, Map<Rank, Card>>(Suit.class);
 
+	static {
+		for (Suit suit : Suit.values()) {
+			Map<Rank, Card> suitTable = new EnumMap<Rank, Card>(Rank.class);
+			for (Rank rank : Rank.values())
+				suitTable.put(rank, new Card(rank, suit));
+			table.put(suit, suitTable);
+		}
+	}
+
+	public static Card valueOf(Rank rank, Suit suit) {
+		return table.get(suit).get(rank);
+	}
+	
 	private static final List<Card> protoDeck = new ArrayList<Card>();
 
 	/**
@@ -54,20 +69,5 @@ public class Card {
 	 */
 	public static ArrayList<Card> newDeck() {
 		return new ArrayList<Card>(protoDeck);
-	}
-
-	private static Map<Suit, Map<Rank, Card>> table = new EnumMap<Suit, Map<Rank, Card>>(Suit.class);
-	
-	static {
-		for (Suit suit : Suit.values()) {
-			Map<Rank, Card> suitTable = new EnumMap<Rank, Card>(Rank.class);
-			for (Rank rank : Rank.values())
-				suitTable.put(rank, new Card(rank, suit));
-			table.put(suit, suitTable);
-		}
-	}
-
-	public static Card valueOf(Rank rank, Suit suit) {
-		return table.get(suit).get(rank);
 	}
 }
