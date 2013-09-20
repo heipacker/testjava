@@ -25,7 +25,16 @@ public class MyThread extends Thread{
 			thread[i] = new MyThread("thread" + i);
 			thread[i].start();
 		}
-		
+		long start = System.nanoTime();
+/*		try {
+			for(int i = 0; i<thread.length; ++i){
+					thread[i].join();
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		//15667913
 		for(int i = 0; i<thread.length; ++i){
 			try {
 				thread[i].join();
@@ -34,6 +43,7 @@ public class MyThread extends Thread{
 				e.printStackTrace();
 			}
 		}
+		//5105957
+		System.out.println("used times:" + (System.nanoTime() - start));
 	}
-
 }
