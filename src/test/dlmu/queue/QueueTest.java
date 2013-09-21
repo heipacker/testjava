@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class QueueTest {
 	
-	private static class Circle implements Comparable{
+	private static class Circle implements Comparable<Circle>{
 		private double r;
 		
 		public Circle(){
@@ -31,11 +31,9 @@ public class QueueTest {
 		}
 
 		@Override
-		public int compareTo(Object o) {
-			if(o instanceof Circle){
-				if(this.r <=((Circle)o).r){
-					return 1;
-				}
+		public int compareTo(Circle o) {
+			if(this.r <= o.r){
+				return 1;
 			}
 			return -1;
 		}
@@ -90,5 +88,4 @@ public class QueueTest {
 		System.out.println("Head of quue is:" + queue.remove());
 		System.out.println("Head of quue is:" + queue.remove());
 	}
-
 }
