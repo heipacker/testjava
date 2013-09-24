@@ -11,7 +11,12 @@ public class Lock {
 	private Thread currentThread = null;
 	
 	private int lockCount = 0;
-	
+	/**
+	 * 
+	 * @throws InterruptedException if any thread interrupted the current thread before
+	 *  or while the current thread was waiting for a notification. 
+	 *  The interrupted status of the current thread is cleared when this exception is thrown.
+	 */
 	public synchronized void lock() throws InterruptedException{
 		Thread cThread = Thread.currentThread();
 		boolean flag = this.currentThread!=cThread;
@@ -27,7 +32,7 @@ public class Lock {
 	
 	public synchronized void unlock(){
 		if(Thread.currentThread()!=this.currentThread){
-			throw new IllegalMonitorStateException("current thread did not lock this Object!");
+			throw new IllegalMonitorStateException("the current thread is not the owner of the object's monitor.!");
 		}
 		--lockCount;
 		if(lockCount==0){
