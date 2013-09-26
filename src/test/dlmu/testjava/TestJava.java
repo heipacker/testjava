@@ -14,6 +14,16 @@ public class TestJava {
 		testLong();
 	}
 	
+	private static void testShort(){
+		short s = 1;
+		s = (short) (s + 1);//error
+		short s1 = 1;
+		s1 += 1;//ok
+		//等价
+		short s2 = 1;
+		s2++;
+	}
+	
 	private static void testLong(){
 		long period = 365*24*60*60*1000;//错误
 		System.out.println(period);
