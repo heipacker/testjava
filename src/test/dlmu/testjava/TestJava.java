@@ -10,6 +10,19 @@ import java.lang.reflect.Method;
 public class TestJava {
 	
 	public static void main(String arg[]){
+		//testClassA();
+		testLong();
+	}
+	
+	private static void testLong(){
+		long period = 365*24*60*60*1000;//错误
+		System.out.println(period);
+		
+		long period1 = 365*24*60*60*1000L;//
+		System.out.println(period1);
+	}
+	
+	private static void testClassA(){
 		ClassA classa = new ClassA();
 		try {
 			Method method = classa.getClass().getDeclaredMethod("test", (Class<?>[])null);
