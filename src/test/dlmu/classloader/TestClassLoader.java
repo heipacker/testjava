@@ -6,6 +6,8 @@ public class TestClassLoader {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.out.println("加载自定义类装载器的装载器:" + ClassLoader.class.getClassLoader());
+		
 		ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
 		System.out.println("系统类装载器:" + systemClassLoader);
 		ClassLoader extClassLoader = systemClassLoader.getParent();
