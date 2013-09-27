@@ -1,5 +1,12 @@
 package test.dlmu.classloader;
-
+/**
+ * ClassLoader(ClassLoader parent)传入null的时候，
+ * 其父类加载器是引导类加载器（当然，也可以将null理解成引导类加载器）
+ * ClassLoader()相当于ClassLoader(ClassLoader.getSystemClassLoader())
+ * 
+ * @author Administrator
+ *
+ */
 public class TestClassLoader {
 
 	/**
