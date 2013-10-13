@@ -24,7 +24,7 @@ public class TestNIOFlipMethod {
 		if(!file.exists() && !file.createNewFile()){
 			return;
 		}
-		FileOutputStream out = new FileOutputStream("D:/data.txt");
+		FileOutputStream out = new FileOutputStream("data.txt");
 		// 获取通道，该通道允许写操作
 		FileChannel fc = out.getChannel();
 		// 将字节数组包装到缓冲区中
@@ -43,7 +43,7 @@ public class TestNIOFlipMethod {
 		fc.write(ByteBuffer.wrap("Some more".getBytes()));
 		fc.close();
 
-		FileInputStream in = new FileInputStream("D:/data.txt");
+		FileInputStream in = new FileInputStream("data.txt");
 		// 用通道读取文件
 		fc = in.getChannel();
 		ByteBuffer buffer = ByteBuffer.allocate(SIZE);
