@@ -1,5 +1,7 @@
 package test.dlmu.testjava;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /**
@@ -11,10 +13,24 @@ public class TestJava {
 	
 	public static void main(String arg[]){
 		//testClassA();
-		testLong();
+		//testLong();
+		System.out.println(stringifyException(new RuntimeException()));
+		//throw new RuntimeException();
+	}
+	/**
+	 * Exception转换为String
+	 * @param e
+	 * @return
+	 */
+	public static String stringifyException(Throwable e){
+		StringWriter stm = new StringWriter();
+	    PrintWriter wrt = new PrintWriter(stm);
+	    e.printStackTrace(wrt);
+	    wrt.close();
+	    return stm.toString();
 	}
 	
-	private static void testShort(){
+	public static void testShort(){
 		short s = 1;
 		s = (short) (s + 1);//error
 		short s1 = 1;
