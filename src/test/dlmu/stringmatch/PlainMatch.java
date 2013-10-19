@@ -7,7 +7,7 @@ public class PlainMatch {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		char[] target = new char[]{'a','c','b','c','d','e','d','a','c','d','d','w','c','w','f','a','d','w','r','a','c','w','b','e'};
+		char[] target = new char[]{'a','d','w','r','a','c','w','b','e'};
 		char[] pattern = new char[]{'d','w','r'};
 		PlainMatch.match(target, pattern);
 	}
