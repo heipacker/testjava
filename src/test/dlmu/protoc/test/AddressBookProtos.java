@@ -10,71 +10,231 @@ public final class AddressBookProtos {
   }
   public interface PersonOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string name = 1;
+    /**
+     * <code>required string name = 1;</code>
+     */
     boolean hasName();
-    String getName();
-    
+    /**
+     * <code>required string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
     // required int32 id = 2;
+    /**
+     * <code>required int32 id = 2;</code>
+     *
+     * <pre>
+     * Unique ID number for this person.
+     * </pre>
+     */
     boolean hasId();
+    /**
+     * <code>required int32 id = 2;</code>
+     *
+     * <pre>
+     * Unique ID number for this person.
+     * </pre>
+     */
     int getId();
-    
+
     // optional string email = 3;
+    /**
+     * <code>optional string email = 3;</code>
+     */
     boolean hasEmail();
-    String getEmail();
-    
+    /**
+     * <code>optional string email = 3;</code>
+     */
+    java.lang.String getEmail();
+    /**
+     * <code>optional string email = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getEmailBytes();
+
     // repeated .tutorial.Person.PhoneNumber phone = 4;
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber> 
         getPhoneList();
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber getPhone(int index);
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     int getPhoneCount();
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     java.util.List<? extends test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder> 
         getPhoneOrBuilderList();
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder getPhoneOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code tutorial.Person}
+   */
   public static final class Person extends
       com.google.protobuf.GeneratedMessage
       implements PersonOrBuilder {
     // Use Person.newBuilder() to construct.
-    private Person(Builder builder) {
+    private Person(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private Person(boolean noInit) {}
-    
+    private Person(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final Person defaultInstance;
     public static Person getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public Person getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Person(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              name_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              id_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              email_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                phone_ = new java.util.ArrayList<test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              phone_.add(input.readMessage(test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          phone_ = java.util.Collections.unmodifiableList(phone_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_fieldAccessorTable;
+      return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              test.dlmu.protoc.test.AddressBookProtos.Person.class, test.dlmu.protoc.test.AddressBookProtos.Person.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<Person> PARSER =
+        new com.google.protobuf.AbstractParser<Person>() {
+      public Person parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Person(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Person> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code tutorial.Person.PhoneType}
+     */
     public enum PhoneType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>MOBILE = 0;</code>
+       */
       MOBILE(0, 0),
+      /**
+       * <code>HOME = 1;</code>
+       */
       HOME(1, 1),
+      /**
+       * <code>WORK = 2;</code>
+       */
       WORK(2, 2),
       ;
-      
+
+      /**
+       * <code>MOBILE = 0;</code>
+       */
       public static final int MOBILE_VALUE = 0;
+      /**
+       * <code>HOME = 1;</code>
+       */
       public static final int HOME_VALUE = 1;
+      /**
+       * <code>WORK = 2;</code>
+       */
       public static final int WORK_VALUE = 2;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static PhoneType valueOf(int value) {
         switch (value) {
           case 0: return MOBILE;
@@ -83,7 +243,7 @@ public final class AddressBookProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<PhoneType>
           internalGetValueMap() {
         return internalValueMap;
@@ -95,7 +255,7 @@ public final class AddressBookProtos {
                 return PhoneType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -108,11 +268,9 @@ public final class AddressBookProtos {
           getDescriptor() {
         return test.dlmu.protoc.test.AddressBookProtos.Person.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final PhoneType[] VALUES = {
-        MOBILE, HOME, WORK, 
-      };
-      
+
+      private static final PhoneType[] VALUES = values();
+
       public static PhoneType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -121,371 +279,94 @@ public final class AddressBookProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private PhoneType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:tutorial.Person.PhoneType)
     }
-    
+
     public interface PhoneNumberOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
-      
+
       // required string number = 1;
+      /**
+       * <code>required string number = 1;</code>
+       */
       boolean hasNumber();
-      String getNumber();
-      
+      /**
+       * <code>required string number = 1;</code>
+       */
+      java.lang.String getNumber();
+      /**
+       * <code>required string number = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getNumberBytes();
+
       // optional .tutorial.Person.PhoneType type = 2 [default = HOME];
+      /**
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       */
       boolean hasType();
+      /**
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       */
       test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType getType();
     }
+    /**
+     * Protobuf type {@code tutorial.Person.PhoneNumber}
+     */
     public static final class PhoneNumber extends
         com.google.protobuf.GeneratedMessage
         implements PhoneNumberOrBuilder {
       // Use PhoneNumber.newBuilder() to construct.
-      private PhoneNumber(Builder builder) {
+      private PhoneNumber(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
+        this.unknownFields = builder.getUnknownFields();
       }
-      private PhoneNumber(boolean noInit) {}
-      
+      private PhoneNumber(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
       private static final PhoneNumber defaultInstance;
       public static PhoneNumber getDefaultInstance() {
         return defaultInstance;
       }
-      
+
       public PhoneNumber getDefaultInstanceForType() {
         return defaultInstance;
       }
-      
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable;
-      }
-      
-      private int bitField0_;
-      // required string number = 1;
-      public static final int NUMBER_FIELD_NUMBER = 1;
-      private java.lang.Object number_;
-      public boolean hasNumber() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public String getNumber() {
-        java.lang.Object ref = number_;
-        if (ref instanceof String) {
-          return (String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-            number_ = s;
-          }
-          return s;
-        }
-      }
-      private com.google.protobuf.ByteString getNumberBytes() {
-        java.lang.Object ref = number_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-          number_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      
-      // optional .tutorial.Person.PhoneType type = 2 [default = HOME];
-      public static final int TYPE_FIELD_NUMBER = 2;
-      private test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType type_;
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType getType() {
-        return type_;
-      }
-      
-      private void initFields() {
-        number_ = "";
-        type_ = test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType.HOME;
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-        
-        if (!hasNumber()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-      
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, getNumberBytes());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeEnum(2, type_.getNumber());
-        }
-        getUnknownFields().writeTo(output);
-      }
-      
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-      
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, getNumberBytes());
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeEnumSize(2, type_.getNumber());
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-      
-      private static final long serialVersionUID = 0L;
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
       }
-      
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
-      }
-      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
+      private PhoneNumber(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
-      }
-      
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-      
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
-        }
-        
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable;
-        }
-        
-        // Construct using test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-        
-        private Builder(BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-        
-        public Builder clear() {
-          super.clear();
-          number_ = "";
-          bitField0_ = (bitField0_ & ~0x00000001);
-          type_ = test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType.HOME;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-        
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-        
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.getDescriptor();
-        }
-        
-        public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber getDefaultInstanceForType() {
-          return test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.getDefaultInstance();
-        }
-        
-        public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber build() {
-          test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-        
-        private test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber buildParsed()
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(
-              result).asInvalidProtocolBufferException();
-          }
-          return result;
-        }
-        
-        public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber buildPartial() {
-          test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber result = new test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.number_ = number_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.type_ = type_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-        
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber) {
-            return mergeFrom((test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-        
-        public Builder mergeFrom(test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber other) {
-          if (other == test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.getDefaultInstance()) return this;
-          if (other.hasNumber()) {
-            setNumber(other.getNumber());
-          }
-          if (other.hasType()) {
-            setType(other.getType());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-        
-        public final boolean isInitialized() {
-          if (!hasNumber()) {
-            
-            return false;
-          }
-          return true;
-        }
-        
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder(
-              this.getUnknownFields());
-          while (true) {
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
+                done = true;
+                break;
               default: {
                 if (!parseUnknownField(input, unknownFields,
                                        extensionRegistry, tag)) {
-                  this.setUnknownFields(unknownFields.build());
-                  onChanged();
-                  return this;
+                  done = true;
                 }
                 break;
               }
@@ -507,26 +388,400 @@ public final class AddressBookProtos {
               }
             }
           }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
         }
-        
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.class, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<PhoneNumber> PARSER =
+          new com.google.protobuf.AbstractParser<PhoneNumber>() {
+        public PhoneNumber parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new PhoneNumber(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<PhoneNumber> getParserForType() {
+        return PARSER;
+      }
+
+      private int bitField0_;
+      // required string number = 1;
+      public static final int NUMBER_FIELD_NUMBER = 1;
+      private java.lang.Object number_;
+      /**
+       * <code>required string number = 1;</code>
+       */
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string number = 1;</code>
+       */
+      public java.lang.String getNumber() {
+        java.lang.Object ref = number_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            number_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>required string number = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNumberBytes() {
+        java.lang.Object ref = number_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          number_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional .tutorial.Person.PhoneType type = 2 [default = HOME];
+      public static final int TYPE_FIELD_NUMBER = 2;
+      private test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType type_;
+      /**
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+       */
+      public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType getType() {
+        return type_;
+      }
+
+      private void initFields() {
+        number_ = "";
+        type_ = test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType.HOME;
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        if (!hasNumber()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeBytes(1, getNumberBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeEnum(2, type_.getNumber());
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(1, getNumberBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeEnumSize(2, type_.getNumber());
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code tutorial.Person.PhoneNumber}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder>
+         implements test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.class, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder.class);
+        }
+
+        // Construct using test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          number_ = "";
+          bitField0_ = (bitField0_ & ~0x00000001);
+          type_ = test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType.HOME;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_PhoneNumber_descriptor;
+        }
+
+        public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber getDefaultInstanceForType() {
+          return test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.getDefaultInstance();
+        }
+
+        public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber build() {
+          test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber buildPartial() {
+          test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber result = new test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.number_ = number_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.type_ = type_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber) {
+            return mergeFrom((test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber other) {
+          if (other == test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.getDefaultInstance()) return this;
+          if (other.hasNumber()) {
+            bitField0_ |= 0x00000001;
+            number_ = other.number_;
+            onChanged();
+          }
+          if (other.hasType()) {
+            setType(other.getType());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasNumber()) {
+            
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
         private int bitField0_;
-        
+
         // required string number = 1;
         private java.lang.Object number_ = "";
+        /**
+         * <code>required string number = 1;</code>
+         */
         public boolean hasNumber() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
-        public String getNumber() {
+        /**
+         * <code>required string number = 1;</code>
+         */
+        public java.lang.String getNumber() {
           java.lang.Object ref = number_;
-          if (!(ref instanceof String)) {
-            String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
             number_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
-        public Builder setNumber(String value) {
+        /**
+         * <code>required string number = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getNumberBytes() {
+          java.lang.Object ref = number_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            number_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>required string number = 1;</code>
+         */
+        public Builder setNumber(
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
@@ -535,26 +790,46 @@ public final class AddressBookProtos {
           onChanged();
           return this;
         }
+        /**
+         * <code>required string number = 1;</code>
+         */
         public Builder clearNumber() {
           bitField0_ = (bitField0_ & ~0x00000001);
           number_ = getDefaultInstance().getNumber();
           onChanged();
           return this;
         }
-        void setNumber(com.google.protobuf.ByteString value) {
-          bitField0_ |= 0x00000001;
+        /**
+         * <code>required string number = 1;</code>
+         */
+        public Builder setNumberBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
           number_ = value;
           onChanged();
+          return this;
         }
-        
+
         // optional .tutorial.Person.PhoneType type = 2 [default = HOME];
         private test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType type_ = test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType.HOME;
+        /**
+         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         */
         public boolean hasType() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
+        /**
+         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         */
         public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType getType() {
           return type_;
         }
+        /**
+         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         */
         public Builder setType(test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType value) {
           if (value == null) {
             throw new NullPointerException();
@@ -564,120 +839,174 @@ public final class AddressBookProtos {
           onChanged();
           return this;
         }
+        /**
+         * <code>optional .tutorial.Person.PhoneType type = 2 [default = HOME];</code>
+         */
         public Builder clearType() {
           bitField0_ = (bitField0_ & ~0x00000002);
           type_ = test.dlmu.protoc.test.AddressBookProtos.Person.PhoneType.HOME;
           onChanged();
           return this;
         }
-        
+
         // @@protoc_insertion_point(builder_scope:tutorial.Person.PhoneNumber)
       }
-      
+
       static {
         defaultInstance = new PhoneNumber(true);
         defaultInstance.initFields();
       }
-      
+
       // @@protoc_insertion_point(class_scope:tutorial.Person.PhoneNumber)
     }
-    
+
     private int bitField0_;
     // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     */
     public boolean hasName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getName() {
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public java.lang.String getName() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           name_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getNameBytes() {
+    /**
+     * <code>required string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required int32 id = 2;
     public static final int ID_FIELD_NUMBER = 2;
     private int id_;
+    /**
+     * <code>required int32 id = 2;</code>
+     *
+     * <pre>
+     * Unique ID number for this person.
+     * </pre>
+     */
     public boolean hasId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required int32 id = 2;</code>
+     *
+     * <pre>
+     * Unique ID number for this person.
+     * </pre>
+     */
     public int getId() {
       return id_;
     }
-    
+
     // optional string email = 3;
     public static final int EMAIL_FIELD_NUMBER = 3;
     private java.lang.Object email_;
+    /**
+     * <code>optional string email = 3;</code>
+     */
     public boolean hasEmail() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    public String getEmail() {
+    /**
+     * <code>optional string email = 3;</code>
+     */
+    public java.lang.String getEmail() {
       java.lang.Object ref = email_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           email_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getEmailBytes() {
+    /**
+     * <code>optional string email = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
       java.lang.Object ref = email_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         email_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // repeated .tutorial.Person.PhoneNumber phone = 4;
     public static final int PHONE_FIELD_NUMBER = 4;
     private java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber> phone_;
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     public java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber> getPhoneList() {
       return phone_;
     }
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     public java.util.List<? extends test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder> 
         getPhoneOrBuilderList() {
       return phone_;
     }
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     public int getPhoneCount() {
       return phone_.size();
     }
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber getPhone(int index) {
       return phone_.get(index);
     }
+    /**
+     * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+     */
     public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder getPhoneOrBuilder(
         int index) {
       return phone_.get(index);
     }
-    
+
     private void initFields() {
       name_ = "";
       id_ = 0;
@@ -688,7 +1017,7 @@ public final class AddressBookProtos {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasName()) {
         memoizedIsInitialized = 0;
         return false;
@@ -706,7 +1035,7 @@ public final class AddressBookProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -724,12 +1053,12 @@ public final class AddressBookProtos {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -751,94 +1080,83 @@ public final class AddressBookProtos {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.Person parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(test.dlmu.protoc.test.AddressBookProtos.Person prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code tutorial.Person}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder {
@@ -846,18 +1164,21 @@ public final class AddressBookProtos {
           getDescriptor() {
         return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_fieldAccessorTable;
+        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                test.dlmu.protoc.test.AddressBookProtos.Person.class, test.dlmu.protoc.test.AddressBookProtos.Person.Builder.class);
       }
-      
+
       // Construct using test.dlmu.protoc.test.AddressBookProtos.Person.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -869,7 +1190,7 @@ public final class AddressBookProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -886,20 +1207,20 @@ public final class AddressBookProtos {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return test.dlmu.protoc.test.AddressBookProtos.Person.getDescriptor();
+        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_Person_descriptor;
       }
-      
+
       public test.dlmu.protoc.test.AddressBookProtos.Person getDefaultInstanceForType() {
         return test.dlmu.protoc.test.AddressBookProtos.Person.getDefaultInstance();
       }
-      
+
       public test.dlmu.protoc.test.AddressBookProtos.Person build() {
         test.dlmu.protoc.test.AddressBookProtos.Person result = buildPartial();
         if (!result.isInitialized()) {
@@ -907,17 +1228,7 @@ public final class AddressBookProtos {
         }
         return result;
       }
-      
-      private test.dlmu.protoc.test.AddressBookProtos.Person buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        test.dlmu.protoc.test.AddressBookProtos.Person result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public test.dlmu.protoc.test.AddressBookProtos.Person buildPartial() {
         test.dlmu.protoc.test.AddressBookProtos.Person result = new test.dlmu.protoc.test.AddressBookProtos.Person(this);
         int from_bitField0_ = bitField0_;
@@ -947,7 +1258,7 @@ public final class AddressBookProtos {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof test.dlmu.protoc.test.AddressBookProtos.Person) {
           return mergeFrom((test.dlmu.protoc.test.AddressBookProtos.Person)other);
@@ -956,17 +1267,21 @@ public final class AddressBookProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(test.dlmu.protoc.test.AddressBookProtos.Person other) {
         if (other == test.dlmu.protoc.test.AddressBookProtos.Person.getDefaultInstance()) return this;
         if (other.hasName()) {
-          setName(other.getName());
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
         }
         if (other.hasId()) {
           setId(other.getId());
         }
         if (other.hasEmail()) {
-          setEmail(other.getEmail());
+          bitField0_ |= 0x00000004;
+          email_ = other.email_;
+          onChanged();
         }
         if (phoneBuilder_ == null) {
           if (!other.phone_.isEmpty()) {
@@ -997,7 +1312,7 @@ public final class AddressBookProtos {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasName()) {
           
@@ -1015,73 +1330,69 @@ public final class AddressBookProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              id_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              bitField0_ |= 0x00000004;
-              email_ = input.readBytes();
-              break;
-            }
-            case 34: {
-              test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder subBuilder = test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addPhone(subBuilder.buildPartial());
-              break;
-            }
+        test.dlmu.protoc.test.AddressBookProtos.Person parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (test.dlmu.protoc.test.AddressBookProtos.Person) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string name = 1;
       private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       */
       public boolean hasName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getName() {
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public java.lang.String getName() {
         java.lang.Object ref = name_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           name_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setName(String value) {
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1090,55 +1401,121 @@ public final class AddressBookProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string name = 1;</code>
+       */
       public Builder clearName() {
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
-      void setName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         name_ = value;
         onChanged();
+        return this;
       }
-      
+
       // required int32 id = 2;
       private int id_ ;
+      /**
+       * <code>required int32 id = 2;</code>
+       *
+       * <pre>
+       * Unique ID number for this person.
+       * </pre>
+       */
       public boolean hasId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required int32 id = 2;</code>
+       *
+       * <pre>
+       * Unique ID number for this person.
+       * </pre>
+       */
       public int getId() {
         return id_;
       }
+      /**
+       * <code>required int32 id = 2;</code>
+       *
+       * <pre>
+       * Unique ID number for this person.
+       * </pre>
+       */
       public Builder setId(int value) {
         bitField0_ |= 0x00000002;
         id_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 id = 2;</code>
+       *
+       * <pre>
+       * Unique ID number for this person.
+       * </pre>
+       */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000002);
         id_ = 0;
         onChanged();
         return this;
       }
-      
+
       // optional string email = 3;
       private java.lang.Object email_ = "";
+      /**
+       * <code>optional string email = 3;</code>
+       */
       public boolean hasEmail() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      public String getEmail() {
+      /**
+       * <code>optional string email = 3;</code>
+       */
+      public java.lang.String getEmail() {
         java.lang.Object ref = email_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           email_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setEmail(String value) {
+      /**
+       * <code>optional string email = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEmailBytes() {
+        java.lang.Object ref = email_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          email_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string email = 3;</code>
+       */
+      public Builder setEmail(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1147,18 +1524,29 @@ public final class AddressBookProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string email = 3;</code>
+       */
       public Builder clearEmail() {
         bitField0_ = (bitField0_ & ~0x00000004);
         email_ = getDefaultInstance().getEmail();
         onChanged();
         return this;
       }
-      void setEmail(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+      /**
+       * <code>optional string email = 3;</code>
+       */
+      public Builder setEmailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         email_ = value;
         onChanged();
+        return this;
       }
-      
+
       // repeated .tutorial.Person.PhoneNumber phone = 4;
       private java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber> phone_ =
         java.util.Collections.emptyList();
@@ -1168,10 +1556,13 @@ public final class AddressBookProtos {
           bitField0_ |= 0x00000008;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder> phoneBuilder_;
-      
+
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber> getPhoneList() {
         if (phoneBuilder_ == null) {
           return java.util.Collections.unmodifiableList(phone_);
@@ -1179,6 +1570,9 @@ public final class AddressBookProtos {
           return phoneBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public int getPhoneCount() {
         if (phoneBuilder_ == null) {
           return phone_.size();
@@ -1186,6 +1580,9 @@ public final class AddressBookProtos {
           return phoneBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber getPhone(int index) {
         if (phoneBuilder_ == null) {
           return phone_.get(index);
@@ -1193,6 +1590,9 @@ public final class AddressBookProtos {
           return phoneBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder setPhone(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber value) {
         if (phoneBuilder_ == null) {
@@ -1207,6 +1607,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder setPhone(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder builderForValue) {
         if (phoneBuilder_ == null) {
@@ -1218,6 +1621,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder addPhone(test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber value) {
         if (phoneBuilder_ == null) {
           if (value == null) {
@@ -1231,6 +1637,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder addPhone(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber value) {
         if (phoneBuilder_ == null) {
@@ -1245,6 +1654,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder addPhone(
           test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder builderForValue) {
         if (phoneBuilder_ == null) {
@@ -1256,6 +1668,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder addPhone(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder builderForValue) {
         if (phoneBuilder_ == null) {
@@ -1267,6 +1682,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder addAllPhone(
           java.lang.Iterable<? extends test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber> values) {
         if (phoneBuilder_ == null) {
@@ -1278,6 +1696,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder clearPhone() {
         if (phoneBuilder_ == null) {
           phone_ = java.util.Collections.emptyList();
@@ -1288,6 +1709,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public Builder removePhone(int index) {
         if (phoneBuilder_ == null) {
           ensurePhoneIsMutable();
@@ -1298,10 +1722,16 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder getPhoneBuilder(
           int index) {
         return getPhoneFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder getPhoneOrBuilder(
           int index) {
         if (phoneBuilder_ == null) {
@@ -1309,6 +1739,9 @@ public final class AddressBookProtos {
           return phoneBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public java.util.List<? extends test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumberOrBuilder> 
            getPhoneOrBuilderList() {
         if (phoneBuilder_ != null) {
@@ -1317,15 +1750,24 @@ public final class AddressBookProtos {
           return java.util.Collections.unmodifiableList(phone_);
         }
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder addPhoneBuilder() {
         return getPhoneFieldBuilder().addBuilder(
             test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.getDefaultInstance());
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder addPhoneBuilder(
           int index) {
         return getPhoneFieldBuilder().addBuilder(
             index, test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.getDefaultInstance());
       }
+      /**
+       * <code>repeated .tutorial.Person.PhoneNumber phone = 4;</code>
+       */
       public java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder> 
            getPhoneBuilderList() {
         return getPhoneFieldBuilder().getBuilderList();
@@ -1344,80 +1786,187 @@ public final class AddressBookProtos {
         }
         return phoneBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:tutorial.Person)
     }
-    
+
     static {
       defaultInstance = new Person(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:tutorial.Person)
   }
-  
+
   public interface AddressBookOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // repeated .tutorial.Person person = 1;
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person> 
         getPersonList();
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     test.dlmu.protoc.test.AddressBookProtos.Person getPerson(int index);
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     int getPersonCount();
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     java.util.List<? extends test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder> 
         getPersonOrBuilderList();
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder getPersonOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code tutorial.AddressBook}
+   *
+   * <pre>
+   * Our address book file is just one of these.
+   * </pre>
+   */
   public static final class AddressBook extends
       com.google.protobuf.GeneratedMessage
       implements AddressBookOrBuilder {
     // Use AddressBook.newBuilder() to construct.
-    private AddressBook(Builder builder) {
+    private AddressBook(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private AddressBook(boolean noInit) {}
-    
+    private AddressBook(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final AddressBook defaultInstance;
     public static AddressBook getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public AddressBook getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AddressBook(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                person_ = new java.util.ArrayList<test.dlmu.protoc.test.AddressBookProtos.Person>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              person_.add(input.readMessage(test.dlmu.protoc.test.AddressBookProtos.Person.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          person_ = java.util.Collections.unmodifiableList(person_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_AddressBook_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_AddressBook_fieldAccessorTable;
+      return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_AddressBook_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              test.dlmu.protoc.test.AddressBookProtos.AddressBook.class, test.dlmu.protoc.test.AddressBookProtos.AddressBook.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<AddressBook> PARSER =
+        new com.google.protobuf.AbstractParser<AddressBook>() {
+      public AddressBook parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AddressBook(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AddressBook> getParserForType() {
+      return PARSER;
+    }
+
     // repeated .tutorial.Person person = 1;
     public static final int PERSON_FIELD_NUMBER = 1;
     private java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person> person_;
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     public java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person> getPersonList() {
       return person_;
     }
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     public java.util.List<? extends test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder> 
         getPersonOrBuilderList() {
       return person_;
     }
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     public int getPersonCount() {
       return person_.size();
     }
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     public test.dlmu.protoc.test.AddressBookProtos.Person getPerson(int index) {
       return person_.get(index);
     }
+    /**
+     * <code>repeated .tutorial.Person person = 1;</code>
+     */
     public test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder getPersonOrBuilder(
         int index) {
       return person_.get(index);
     }
-    
+
     private void initFields() {
       person_ = java.util.Collections.emptyList();
     }
@@ -1425,7 +1974,7 @@ public final class AddressBookProtos {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       for (int i = 0; i < getPersonCount(); i++) {
         if (!getPerson(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -1435,7 +1984,7 @@ public final class AddressBookProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -1444,12 +1993,12 @@ public final class AddressBookProtos {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       for (int i = 0; i < person_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -1459,94 +2008,87 @@ public final class AddressBookProtos {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static test.dlmu.protoc.test.AddressBookProtos.AddressBook parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(test.dlmu.protoc.test.AddressBookProtos.AddressBook prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code tutorial.AddressBook}
+     *
+     * <pre>
+     * Our address book file is just one of these.
+     * </pre>
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements test.dlmu.protoc.test.AddressBookProtos.AddressBookOrBuilder {
@@ -1554,18 +2096,21 @@ public final class AddressBookProtos {
           getDescriptor() {
         return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_AddressBook_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_AddressBook_fieldAccessorTable;
+        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_AddressBook_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                test.dlmu.protoc.test.AddressBookProtos.AddressBook.class, test.dlmu.protoc.test.AddressBookProtos.AddressBook.Builder.class);
       }
-      
+
       // Construct using test.dlmu.protoc.test.AddressBookProtos.AddressBook.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1577,7 +2122,7 @@ public final class AddressBookProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         if (personBuilder_ == null) {
@@ -1588,20 +2133,20 @@ public final class AddressBookProtos {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return test.dlmu.protoc.test.AddressBookProtos.AddressBook.getDescriptor();
+        return test.dlmu.protoc.test.AddressBookProtos.internal_static_tutorial_AddressBook_descriptor;
       }
-      
+
       public test.dlmu.protoc.test.AddressBookProtos.AddressBook getDefaultInstanceForType() {
         return test.dlmu.protoc.test.AddressBookProtos.AddressBook.getDefaultInstance();
       }
-      
+
       public test.dlmu.protoc.test.AddressBookProtos.AddressBook build() {
         test.dlmu.protoc.test.AddressBookProtos.AddressBook result = buildPartial();
         if (!result.isInitialized()) {
@@ -1609,17 +2154,7 @@ public final class AddressBookProtos {
         }
         return result;
       }
-      
-      private test.dlmu.protoc.test.AddressBookProtos.AddressBook buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        test.dlmu.protoc.test.AddressBookProtos.AddressBook result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public test.dlmu.protoc.test.AddressBookProtos.AddressBook buildPartial() {
         test.dlmu.protoc.test.AddressBookProtos.AddressBook result = new test.dlmu.protoc.test.AddressBookProtos.AddressBook(this);
         int from_bitField0_ = bitField0_;
@@ -1635,7 +2170,7 @@ public final class AddressBookProtos {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof test.dlmu.protoc.test.AddressBookProtos.AddressBook) {
           return mergeFrom((test.dlmu.protoc.test.AddressBookProtos.AddressBook)other);
@@ -1644,7 +2179,7 @@ public final class AddressBookProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(test.dlmu.protoc.test.AddressBookProtos.AddressBook other) {
         if (other == test.dlmu.protoc.test.AddressBookProtos.AddressBook.getDefaultInstance()) return this;
         if (personBuilder_ == null) {
@@ -1676,7 +2211,7 @@ public final class AddressBookProtos {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         for (int i = 0; i < getPersonCount(); i++) {
           if (!getPerson(i).isInitialized()) {
@@ -1686,42 +2221,26 @@ public final class AddressBookProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              test.dlmu.protoc.test.AddressBookProtos.Person.Builder subBuilder = test.dlmu.protoc.test.AddressBookProtos.Person.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addPerson(subBuilder.buildPartial());
-              break;
-            }
+        test.dlmu.protoc.test.AddressBookProtos.AddressBook parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (test.dlmu.protoc.test.AddressBookProtos.AddressBook) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // repeated .tutorial.Person person = 1;
       private java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person> person_ =
         java.util.Collections.emptyList();
@@ -1731,10 +2250,13 @@ public final class AddressBookProtos {
           bitField0_ |= 0x00000001;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           test.dlmu.protoc.test.AddressBookProtos.Person, test.dlmu.protoc.test.AddressBookProtos.Person.Builder, test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder> personBuilder_;
-      
+
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person> getPersonList() {
         if (personBuilder_ == null) {
           return java.util.Collections.unmodifiableList(person_);
@@ -1742,6 +2264,9 @@ public final class AddressBookProtos {
           return personBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public int getPersonCount() {
         if (personBuilder_ == null) {
           return person_.size();
@@ -1749,6 +2274,9 @@ public final class AddressBookProtos {
           return personBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person getPerson(int index) {
         if (personBuilder_ == null) {
           return person_.get(index);
@@ -1756,6 +2284,9 @@ public final class AddressBookProtos {
           return personBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder setPerson(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person value) {
         if (personBuilder_ == null) {
@@ -1770,6 +2301,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder setPerson(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person.Builder builderForValue) {
         if (personBuilder_ == null) {
@@ -1781,6 +2315,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder addPerson(test.dlmu.protoc.test.AddressBookProtos.Person value) {
         if (personBuilder_ == null) {
           if (value == null) {
@@ -1794,6 +2331,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder addPerson(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person value) {
         if (personBuilder_ == null) {
@@ -1808,6 +2348,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder addPerson(
           test.dlmu.protoc.test.AddressBookProtos.Person.Builder builderForValue) {
         if (personBuilder_ == null) {
@@ -1819,6 +2362,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder addPerson(
           int index, test.dlmu.protoc.test.AddressBookProtos.Person.Builder builderForValue) {
         if (personBuilder_ == null) {
@@ -1830,6 +2376,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder addAllPerson(
           java.lang.Iterable<? extends test.dlmu.protoc.test.AddressBookProtos.Person> values) {
         if (personBuilder_ == null) {
@@ -1841,6 +2390,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder clearPerson() {
         if (personBuilder_ == null) {
           person_ = java.util.Collections.emptyList();
@@ -1851,6 +2403,9 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public Builder removePerson(int index) {
         if (personBuilder_ == null) {
           ensurePersonIsMutable();
@@ -1861,10 +2416,16 @@ public final class AddressBookProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.Builder getPersonBuilder(
           int index) {
         return getPersonFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder getPersonOrBuilder(
           int index) {
         if (personBuilder_ == null) {
@@ -1872,6 +2433,9 @@ public final class AddressBookProtos {
           return personBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public java.util.List<? extends test.dlmu.protoc.test.AddressBookProtos.PersonOrBuilder> 
            getPersonOrBuilderList() {
         if (personBuilder_ != null) {
@@ -1880,15 +2444,24 @@ public final class AddressBookProtos {
           return java.util.Collections.unmodifiableList(person_);
         }
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.Builder addPersonBuilder() {
         return getPersonFieldBuilder().addBuilder(
             test.dlmu.protoc.test.AddressBookProtos.Person.getDefaultInstance());
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public test.dlmu.protoc.test.AddressBookProtos.Person.Builder addPersonBuilder(
           int index) {
         return getPersonFieldBuilder().addBuilder(
             index, test.dlmu.protoc.test.AddressBookProtos.Person.getDefaultInstance());
       }
+      /**
+       * <code>repeated .tutorial.Person person = 1;</code>
+       */
       public java.util.List<test.dlmu.protoc.test.AddressBookProtos.Person.Builder> 
            getPersonBuilderList() {
         return getPersonFieldBuilder().getBuilderList();
@@ -1907,18 +2480,18 @@ public final class AddressBookProtos {
         }
         return personBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:tutorial.AddressBook)
     }
-    
+
     static {
       defaultInstance = new AddressBook(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:tutorial.AddressBook)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_tutorial_Person_descriptor;
   private static
@@ -1934,7 +2507,7 @@ public final class AddressBookProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_tutorial_AddressBook_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -1963,25 +2536,19 @@ public final class AddressBookProtos {
           internal_static_tutorial_Person_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_tutorial_Person_descriptor,
-              new java.lang.String[] { "Name", "Id", "Email", "Phone", },
-              test.dlmu.protoc.test.AddressBookProtos.Person.class,
-              test.dlmu.protoc.test.AddressBookProtos.Person.Builder.class);
+              new java.lang.String[] { "Name", "Id", "Email", "Phone", });
           internal_static_tutorial_Person_PhoneNumber_descriptor =
             internal_static_tutorial_Person_descriptor.getNestedTypes().get(0);
           internal_static_tutorial_Person_PhoneNumber_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_tutorial_Person_PhoneNumber_descriptor,
-              new java.lang.String[] { "Number", "Type", },
-              test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.class,
-              test.dlmu.protoc.test.AddressBookProtos.Person.PhoneNumber.Builder.class);
+              new java.lang.String[] { "Number", "Type", });
           internal_static_tutorial_AddressBook_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_tutorial_AddressBook_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_tutorial_AddressBook_descriptor,
-              new java.lang.String[] { "Person", },
-              test.dlmu.protoc.test.AddressBookProtos.AddressBook.class,
-              test.dlmu.protoc.test.AddressBookProtos.AddressBook.Builder.class);
+              new java.lang.String[] { "Person", });
           return null;
         }
       };
@@ -1990,6 +2557,6 @@ public final class AddressBookProtos {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }
