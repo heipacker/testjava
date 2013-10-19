@@ -5,8 +5,11 @@ import test.dlmu.protoc.test.AddressBookProtos.AddressBook;
 import test.dlmu.protoc.test.AddressBookProtos.Person;
 
 class ListPeople {
-  // Iterates though all people in the AddressBook and prints info about them.
-  static void Print(AddressBook addressBook) {
+  /**
+   * Iterates though all people in the AddressBook and prints info about them.
+   * @param addressBook
+   */
+  private static void print(AddressBook addressBook) {
     for (Person person: addressBook.getPersonList()) {
       System.out.println("Person ID: " + person.getId());
       System.out.println("  Name: " + person.getName());
@@ -31,8 +34,12 @@ class ListPeople {
     }
   }
 
-  // Main function:  Reads the entire address book from a file and prints all
-  //   the information inside.
+  /**
+   * Main function:  Reads the entire address book 
+   * from a file and prints all the information inside.
+   * @param args
+   * @throws Exception
+   */
   public static void main(String[] args) throws Exception {
     if (args.length != 1) {
       System.err.println("Usage:  ListPeople ADDRESS_BOOK_FILE");
@@ -40,9 +47,8 @@ class ListPeople {
     }
 
     // Read the existing address book.
-    AddressBook addressBook =
-      AddressBook.parseFrom(new FileInputStream(args[0]));
+    AddressBook addressBook = AddressBook.parseFrom(new FileInputStream(args[0]));
 
-    Print(addressBook);
+    print(addressBook);
   }
 }
