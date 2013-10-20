@@ -3,6 +3,7 @@ package test.dlmu.protoc.test;
 import java.util.Iterator;
 import java.util.List;
 
+import test.dlmu.pbtest.proto.CalculatorMsg.RequestProto;
 import test.dlmu.protoc.test.Foo.FooRequest;
 import test.dlmu.protoc.test.Foo.FooResponse;
 import test.dlmu.protoc.test.Foo.FooService.BlockingInterface;
@@ -49,7 +50,7 @@ public class MyFooTest {
 		}
 		System.out.println("----------------------------------------------------");
 		MethodDescriptor method = bs.getDescriptorForType().findMethodByName("Bar");
-		//参数 一搬通过builder.mergeFrom() 从流中读取或者byte[]读取等
+		//参数 一搬通过FooRequest.parseFrom(data); 从流中读取或者byte[]读取等
 		FooRequest.Builder builder = FooRequest.newBuilder();
 		//此处我直接赋值
 		builder.setField(FooRequest.getDescriptor().findFieldByName("indata"), "2222");
