@@ -57,9 +57,8 @@ public class Server extends Thread {
 			dis.close();
 			ss.close();
 		} catch (Exception e) {
+			
 		}
-		;
-
 	}
 
 	public byte[] processOneRpc(byte[] data) throws Exception {
