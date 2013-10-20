@@ -22,29 +22,23 @@ public class CalculatorPBServiceImpl implements CalculatorPB {
 	@Override
 	public ResponseProto add(RpcController controller, RequestProto request) throws ServiceException {
 		// TODO Auto-generated method stub
-		ResponseProto proto = ResponseProto.getDefaultInstance();
 		ResponseProto.Builder build = ResponseProto.newBuilder();
 		int add1 = request.getNum1();
 		int add2 = request.getNum2();
 		int sum = real.add(add1, add2);
-		ResponseProto result = null;
 		build.setResult(sum);
-		result = build.build();
-		return result;
+		return build.build();
 	}
 
 	@Override
 	public ResponseProto minus(RpcController controller, RequestProto request) throws ServiceException {
 		// TODO Auto-generated method stub
-		ResponseProto proto = ResponseProto.getDefaultInstance();
 		ResponseProto.Builder build = ResponseProto.newBuilder();
 		int add1 = request.getNum1();
 		int add2 = request.getNum2();
 		int sum = real.minus(add1, add2);
-		ResponseProto result = null;
 		build.setResult(sum);
-		result = build.build();
-		return result;
+		return build.build();
 	}
 
 }

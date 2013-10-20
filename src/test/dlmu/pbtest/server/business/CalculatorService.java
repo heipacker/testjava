@@ -11,7 +11,7 @@ import com.google.protobuf.BlockingService;
 
 /**
  * 计算服务
- * 
+ * 主要是创建服务端 等待客户端请求
  * @author Administrator
  * 
  */
@@ -114,7 +114,7 @@ public class CalculatorService implements Calculator {
 
 		try {
 			// 需要协议类名及服务实现实例
-			createServer(pbProtocol, (BlockingService) method.invoke(null, service));
+			createServer(pbProtocol, (BlockingService) method.invoke(null, service)/** 创建代理**/);
 		} catch (InvocationTargetException e) {
 
 		} catch (IllegalArgumentException e) {
