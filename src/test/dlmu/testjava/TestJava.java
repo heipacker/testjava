@@ -14,9 +14,23 @@ public class TestJava {
 	public static void main(String arg[]){
 		//testClassA();
 		//testLong();
+		System.out.println(TestJava.class.getSimpleName());
+		System.out.println(classNameBase(TestJava.class.getName()));
 		System.out.println(stringifyException(new RuntimeException()));
 		//throw new RuntimeException();
 	}
+    /**
+     * get base name
+     * @param className
+     * @return
+     */
+    private static String classNameBase(String className) {
+      String[] names = className.split("\\.", -1);
+      if (names == null || names.length == 0) {
+        return className;
+      }
+      return names[names.length-1];
+    }
 	/**
 	 * Exception转换为String
 	 * @param e
