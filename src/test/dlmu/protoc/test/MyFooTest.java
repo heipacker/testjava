@@ -3,7 +3,6 @@ package test.dlmu.protoc.test;
 import java.util.Iterator;
 import java.util.List;
 
-import test.dlmu.pbtest.proto.CalculatorMsg.RequestProto;
 import test.dlmu.protoc.test.Foo.FooRequest;
 import test.dlmu.protoc.test.Foo.FooResponse;
 import test.dlmu.protoc.test.Foo.FooService.BlockingInterface;
@@ -11,9 +10,10 @@ import test.dlmu.protoc.test.Foo.FooService.BlockingInterface;
 import com.google.protobuf.BlockingService;
 import com.google.protobuf.Descriptors.MethodDescriptor;
 import com.google.protobuf.Descriptors.ServiceDescriptor;
+import com.google.protobuf.Message;
 import com.google.protobuf.ServiceException;
 /**
- * protobuf service测试
+ * protobuf service 阻塞方法测试
  * @author Administrator
  *
  */
@@ -56,7 +56,8 @@ public class MyFooTest {
 		builder.setField(FooRequest.getDescriptor().findFieldByName("indata"), "2222");
 		try {
 			//调用服务方法
-			System.out.println(bs.callBlockingMethod(method, null, builder.build()).getField(FooResponse.getDescriptor().findFieldByName("outdata")));
+			Message message = bs.callBlockingMethod(method, null, builder.build());
+			System.out.println(message.getField(FooResponse.getDescriptor().findFieldByName("outdata")));
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,6 +69,8 @@ public class MyFooTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//
+		Foo.FooService.Stub stub = Foo.FooService.newStub(null);
 	}
 
 }
