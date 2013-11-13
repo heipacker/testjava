@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/quartz/!svn/ver/2254/trunk/distribution/examples/src/main/java/org/quartz/examples/example9
+END
+Job1Listener.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/quartz/!svn/ver/2254/trunk/distribution/examples/src/main/java/org/quartz/examples/example9/Job1Listener.java
+END
+ListenerExample.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/quartz/!svn/ver/1913/trunk/distribution/examples/src/main/java/org/quartz/examples/example9/ListenerExample.java
+END
+SimpleJob1.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/quartz/!svn/ver/1913/trunk/distribution/examples/src/main/java/org/quartz/examples/example9/SimpleJob1.java
+END
+SimpleJob2.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/quartz/!svn/ver/1913/trunk/distribution/examples/src/main/java/org/quartz/examples/example9/SimpleJob2.java
+END
