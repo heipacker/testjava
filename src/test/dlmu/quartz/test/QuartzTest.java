@@ -7,8 +7,9 @@ import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
-import org.quartz.examples.example1.HelloJob;
 import org.quartz.impl.StdSchedulerFactory;
+
+import test.dlmu.quartz.test.examples.example1.HelloJob;
 
 public class QuartzTest {
 
@@ -25,7 +26,7 @@ public class QuartzTest {
 			JobDetail job = newJob(HelloJob.class).withIdentity("job1", "group1").build();
 			// Trigger the job to run now, and then repeat every 40 seconds
 			Trigger trigger = newTrigger().withIdentity("trigger1", "group1").startNow()
-					.withSchedule(simpleSchedule().withIntervalInSeconds(40).repeatForever()).build();
+					.withSchedule(simpleSchedule().withIntervalInSeconds(4).repeatForever()).build();
 			// Tell quartz to schedule the job using our trigger
 			scheduler.scheduleJob(job, trigger);
 			try {
