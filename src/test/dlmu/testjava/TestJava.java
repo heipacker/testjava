@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 测试java反射调用类的静态方法
  * @author hadoop
@@ -12,19 +13,25 @@ import java.lang.reflect.Method;
 public class TestJava {
 	
 	public static void main(String arg[]){
+		testAtomicInteger();
 		//testClassA();
 		//testLong();
-		System.out.println(TestJava.class.getSimpleName());
-		System.out.println(classNameBase(TestJava.class.getName()));
-		System.out.println(stringifyException(new RuntimeException()));
+		//System.out.println(TestJava.class.getSimpleName());
+		//System.out.println(classNameBase(TestJava.class.getName()));
+		//System.out.println(stringifyException(new RuntimeException()));
 		//throw new RuntimeException();
+	}
+	public static void testAtomicInteger(){
+		AtomicInteger a = new AtomicInteger(0);
+		AtomicInteger b = new AtomicInteger(0);
+		System.out.println(a.equals(b));
 	}
     /**
      * get base name
      * @param className
      * @return
      */
-    private static String classNameBase(String className) {
+	public static String classNameBase(String className) {
       String[] names = className.split("\\.", -1);
       if (names == null || names.length == 0) {
         return className;
@@ -54,7 +61,7 @@ public class TestJava {
 		s2++;
 	}
 	
-	private static void testLong(){
+	public static void testLong(){
 		long period = 365*24*60*60*1000;//错误
 		System.out.println(period);
 		
@@ -62,7 +69,7 @@ public class TestJava {
 		System.out.println(period1);
 	}
 	
-	private static void testClassA(){
+	public static void testClassA(){
 		ClassA classa = new ClassA();
 		try {
 			Method method = classa.getClass().getDeclaredMethod("test", (Class<?>[])null);
