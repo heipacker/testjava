@@ -20,9 +20,9 @@ import com.lmax.disruptor.util.PaddedLong;
  *
  */
 public class DisruptorTest {
-	protected static final Logger LOG = LoggerFactory.getLogger(DisruptorTest.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DisruptorTest.class);
 	//线程数
-	private static final int THREAD_NUMS = 1;
+	private static final int THREAD_NUMS = 3;
 	//Buffer大小
 	private static final int BUFFER_SIZE = 1024 * 8;
 	
@@ -33,8 +33,9 @@ public class DisruptorTest {
 		//使用线程池
 		ExecutorService executors = Executors.newFixedThreadPool(THREAD_NUMS);
 		SequenceBarrier sequenceBarrier = ringBuffer.newBarrier();
-
+		//消息事件处理器
 		MessageMutationEventHandler[] handlers = new MessageMutationEventHandler[THREAD_NUMS];
+		//消息事件批处理器 BatchEventProcessor从RingBuffer获取消息事件 然后调用MessageMutationEventHandler的onEvent方法处理消息事件
 		BatchEventProcessor<?>[] batchEventProcessors = new BatchEventProcessor[THREAD_NUMS];
 
 		for (int i = 0; i < THREAD_NUMS; i++) {
@@ -46,11 +47,12 @@ public class DisruptorTest {
 		CountDownLatch latch = new CountDownLatch(THREAD_NUMS);
 		for (int i = 0; i < THREAD_NUMS; i++) {
 			long n = batchEventProcessors[i].getSequence().get() + NUMS;
-			System.out.println(n + "    " + NUMS + "  " + batchEventProcessors[i].getSequence().get());
+			LOG.info(n + "    " + NUMS + "  " + batchEventProcessors[i].getSequence().get());
 			handlers[i].reset(latch, n);
 			//提交批时间处理器
 			executors.submit(batchEventProcessors[i]);
 		}
+		//计时开始
 		long start = System.currentTimeMillis();
 
 		for (long i = 0; i < NUMS; i++) {
@@ -66,7 +68,7 @@ public class DisruptorTest {
 		for (int i = 0; i < THREAD_NUMS; i++) {
 			batchEventProcessors[i].halt();
 			if ((NUMS - 1) == handlers[i].getValue()) {
-				
+				LOG.info("-----" + handlers[i].getValue() + "-----");
 			} else {
 				LOG.error("error");
 			}
@@ -102,6 +104,7 @@ public class DisruptorTest {
 		public void onEvent(final MessageEvent event, final long sequence, final boolean endOfBatch) throws Exception {
 			// log.info("onEvent:{}", event.getValue());
 			value.set(event.getValue());
+			LOG.info("onEvent:" + event.getValue());
 			if (count == sequence) {
 				//通知最后一个事件发生了
 				latch.countDown();
@@ -109,7 +112,7 @@ public class DisruptorTest {
 		}
 	}
 	/**
-	 * 消息单元
+	 * 消息事件单元
 	 * @author Administrator
 	 *
 	 */
