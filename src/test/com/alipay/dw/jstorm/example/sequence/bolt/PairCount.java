@@ -3,7 +3,6 @@ package test.com.alipay.dw.jstorm.example.sequence.bolt;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-
 import org.apache.log4j.Logger;
 
 import test.com.alipay.dw.jstorm.example.TpsCounter;
@@ -21,35 +20,33 @@ public class PairCount implements IBasicBolt {
 	/**
      * 
      */
-    private static final long serialVersionUID = 7346295981904929419L;
+	private static final long serialVersionUID = 7346295981904929419L;
 
-    public static final Logger LOG = Logger.getLogger(PairCount.class);
+	public static final Logger LOG = Logger.getLogger(PairCount.class);
 
-	private AtomicLong  sum = new AtomicLong(0);
-	
-	private TpsCounter          tpsCounter;
+	private AtomicLong sum = new AtomicLong(0);
+
+	private TpsCounter tpsCounter;
 
 	public void prepare(Map conf, TopologyContext context) {
-	    tpsCounter = new TpsCounter(context.getThisComponentId() + 
-                ":" + context.getThisTaskId());
-		
+		tpsCounter = new TpsCounter(context.getThisComponentId() + ":" + context.getThisTaskId());
+
 		LOG.info("Successfully do parepare " + context.getThisComponentId());
 	}
 
 	public void execute(Tuple tuple, BasicOutputCollector collector) {
-	    tpsCounter.count();
-	    
-		Long tupleId = tuple.getLong(0);
-		Pair pair = (Pair)tuple.getValue(1);
-        
-        sum.addAndGet(pair.getValue());
-        
-        collector.emit(new Values(tupleId, pair));
+		tpsCounter.count();
 
+		Long tupleId = tuple.getLong(0);
+		Pair pair = (Pair) tuple.getValue(1);
+
+		sum.addAndGet(pair.getValue());
+
+		collector.emit(new Values(tupleId, pair));
 	}
 
 	public void cleanup() {
-	    tpsCounter.cleanup();
+		tpsCounter.cleanup();
 		LOG.info("Total receive value :" + sum);
 	}
 
@@ -58,7 +55,7 @@ public class PairCount implements IBasicBolt {
 	}
 
 	public Map<String, Object> getComponentConfiguration() {
-	    // TODO Auto-generated method stub
-	    return null;
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
