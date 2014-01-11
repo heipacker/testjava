@@ -33,12 +33,12 @@ public class JavaServer {
 
 	public static CalculatorHandler handler;
 
-	public static Calculator.Processor processor;
+	public static Calculator.Processor<CalculatorHandler> processor;
 
 	public static void main(String[] args) {
 		try {
 			handler = new CalculatorHandler();
-			processor = new Calculator.Processor(handler);
+			processor = new Calculator.Processor<CalculatorHandler>(handler);
 
 			Runnable simple = new Runnable() {
 				public void run() {
@@ -58,7 +58,7 @@ public class JavaServer {
 		}
 	}
 
-	public static void simple(Calculator.Processor processor) {
+	public static void simple(Calculator.Processor<CalculatorHandler> processor) {
 		try {
 			TServerTransport serverTransport = new TServerSocket(9090);
 			TServer server = new TSimpleServer(new Args(serverTransport).processor(processor));
@@ -74,7 +74,7 @@ public class JavaServer {
 		}
 	}
 
-	public static void secure(Calculator.Processor processor) {
+	public static void secure(Calculator.Processor<CalculatorHandler> processor) {
 		try {
 			/*
 			 * Use TSSLTransportParameters to setup the required SSL parameters.
@@ -84,7 +84,7 @@ public class JavaServer {
 			 */
 			TSSLTransportParameters params = new TSSLTransportParameters();
 			// The Keystore contains the private key
-			params.setKeyStore("../../lib/java/test/.keystore", "thrift", null, null);
+			params.setKeyStore("src/.keystore", "thrift", null, null);
 
 			/*
 			 * Use any of the TSSLTransportFactory to get a server transport

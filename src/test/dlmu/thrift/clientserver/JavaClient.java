@@ -32,6 +32,10 @@ import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
 
 public class JavaClient {
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		if (args.length != 1) {
@@ -53,7 +57,7 @@ public class JavaClient {
 				 * a self-signed cert.
 				 */
 				TSSLTransportParameters params = new TSSLTransportParameters();
-				params.setTrustStore("../../lib/java/test/.truststore", "thrift", "SunX509", "JKS");
+				params.setTrustStore("src/.truststore", "thrift", "SunX509", "JKS");
 				/*
 				 * Get a client transport instead of a server transport. The
 				 * connection is opened on invocation of the factory method, no
