@@ -1,4 +1,4 @@
-package test.com.alipay.dw.jstorm.example.sequence.bean;
+package test.dlmu.jstorm.example.sequence.bean;
 
 import java.io.Serializable;
 

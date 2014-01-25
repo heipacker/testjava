@@ -1,4 +1,4 @@
-package test.com.alipay.dw.jstorm.example.sequence;
+package test.dlmu.jstorm.example.sequence;
 
 public class SequenceTopologyDef {
 

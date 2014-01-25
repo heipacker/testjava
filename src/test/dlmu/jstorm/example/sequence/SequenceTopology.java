@@ -1,10 +1,10 @@
-package test.com.alipay.dw.jstorm.example.sequence;
+package test.dlmu.jstorm.example.sequence;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import test.com.alipay.dw.jstorm.example.sequence.bolt.TotalCount;
-import test.com.alipay.dw.jstorm.example.sequence.spout.SequenceSpout;
+import test.dlmu.jstorm.example.sequence.bolt.TotalCount;
+import test.dlmu.jstorm.example.sequence.spout.SequenceSpout;
 
 import backtype.storm.Config;
 import backtype.storm.StormSubmitter;

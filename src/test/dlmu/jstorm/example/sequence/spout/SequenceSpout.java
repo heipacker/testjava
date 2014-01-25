@@ -1,15 +1,15 @@
-package test.com.alipay.dw.jstorm.example.sequence.spout;
+package test.dlmu.jstorm.example.sequence.spout;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.log4j.Logger;
 
-import test.com.alipay.dw.jstorm.example.TpsCounter;
-import test.com.alipay.dw.jstorm.example.sequence.SequenceTopologyDef;
-import test.com.alipay.dw.jstorm.example.sequence.bean.Pair;
-import test.com.alipay.dw.jstorm.example.sequence.bean.PairMaker;
-import test.com.alipay.dw.jstorm.example.sequence.bean.TradeCustomer;
+import test.dlmu.jstorm.example.TpsCounter;
+import test.dlmu.jstorm.example.sequence.SequenceTopologyDef;
+import test.dlmu.jstorm.example.sequence.bean.Pair;
+import test.dlmu.jstorm.example.sequence.bean.PairMaker;
+import test.dlmu.jstorm.example.sequence.bean.TradeCustomer;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;

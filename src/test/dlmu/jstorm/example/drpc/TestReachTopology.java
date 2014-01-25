@@ -1,4 +1,4 @@
-package test.com.alipay.dw.jstorm.example.drpc;
+package test.dlmu.jstorm.example.drpc;
 
 import org.apache.thrift.TException;
 

@@ -1,4 +1,4 @@
-package test.com.alipay.dw.jstorm.example;
+package test.dlmu.jstorm.example;
 
 import java.util.concurrent.atomic.AtomicLong;
 

@@ -1,4 +1,4 @@
-package test.com.alipay.dw.jstorm.example.drpc;
+package test.dlmu.jstorm.example.drpc;
 
 import backtype.storm.Config;
 import backtype.storm.StormSubmitter;

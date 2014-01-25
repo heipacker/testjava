@@ -1,4 +1,4 @@
-package test.com.alipay.dw.jstorm.example.sequence.bolt;
+package test.dlmu.jstorm.example.sequence.bolt;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,9 +6,9 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.log4j.Logger;
 
-import test.com.alipay.dw.jstorm.example.TpsCounter;
-import test.com.alipay.dw.jstorm.example.sequence.SequenceTopologyDef;
-import test.com.alipay.dw.jstorm.example.sequence.bean.Pair;
+import test.dlmu.jstorm.example.TpsCounter;
+import test.dlmu.jstorm.example.sequence.SequenceTopologyDef;
+import test.dlmu.jstorm.example.sequence.bean.Pair;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
