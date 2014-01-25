@@ -1,3 +1,4 @@
-/bin
-*/.svn/
+#忽略掉.setting 下的所有文件
+/.settings/
+#忽略/target
 /target
