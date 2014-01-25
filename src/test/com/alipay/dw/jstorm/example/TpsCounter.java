@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.log4j.Logger;
 
-import com.alipay.dw.jstorm.utils.IntervalCheck;
+import com.alibaba.jstorm.utils.IntervalCheck;
 
 public class TpsCounter {
 	public static Logger LOG = Logger.getLogger(TpsCounter.class);

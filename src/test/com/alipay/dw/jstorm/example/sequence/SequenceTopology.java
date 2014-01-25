@@ -11,30 +11,27 @@ import backtype.storm.StormSubmitter;
 import backtype.storm.drpc.LinearDRPCTopologyBuilder;
 import backtype.storm.generated.AlreadyAliveException;
 import backtype.storm.generated.InvalidTopologyException;
+import backtype.storm.generated.TopologyAssignException;
 import backtype.storm.topology.TopologyBuilder;
 
 public class SequenceTopology {
 
-	public static void SetBuilder(TopologyBuilder builder, Map conf) {
+	public static void setBuilder(TopologyBuilder builder, Map conf) {
 
 		builder.setSpout(SequenceTopologyDef.SEQUENCE_SPOUT_NAME, new SequenceSpout(), 1);
 
-		// builder.setBolt(SequenceTopologyDef.SPLIT_BOLT_NAME, new
-		// SplitRecord(), 2).fieldsGrouping(
+		// builder.setBolt(SequenceTopologyDef.SPLIT_BOLT_NAME, new SplitRecord(), 2).fieldsGrouping(
 		// SequenceTopologyDef.SEQUENCE_SPOUT_NAME, new Fields("ID"));
 		//
-		// builder.setBolt(SequenceTopologyDef.TRADE_BOLT_NAME, new PairCount(),
-		// 1).shuffleGrouping(
+		// builder.setBolt(SequenceTopologyDef.TRADE_BOLT_NAME, new PairCount(), 1).shuffleGrouping(
 		// SequenceTopologyDef.SPLIT_BOLT_NAME,
 		// SequenceTopologyDef.TRADE_STREAM_ID);
 		//
-		// builder.setBolt(SequenceTopologyDef.CUSTOMER_BOLT_NAME, new
-		// PairCount(), 1)
+		// builder.setBolt(SequenceTopologyDef.CUSTOMER_BOLT_NAME, new PairCount(), 1)
 		// .shuffleGrouping(SequenceTopologyDef.SPLIT_BOLT_NAME,
 		// SequenceTopologyDef.CUSTOMER_STREAM_ID);
 		//
-		// builder.setBolt(SequenceTopologyDef.MERGE_BOLT_NAME, new
-		// MergeRecord(), 1)
+		// builder.setBolt(SequenceTopologyDef.MERGE_BOLT_NAME, new MergeRecord(), 1)
 		// .shuffleGrouping(SequenceTopologyDef.TRADE_BOLT_NAME)
 		// .shuffleGrouping(SequenceTopologyDef.CUSTOMER_BOLT_NAME);
 
@@ -50,7 +47,6 @@ public class SequenceTopology {
 		// conf.put(Config.TOPOLOGY_MAX_SPOUT_PENDING, 1);
 
 		conf.put(Config.TOPOLOGY_WORKERS, 6);
-
 	}
 
 	public static void SetLocalTopology() throws InterruptedException {
@@ -68,19 +64,19 @@ public class SequenceTopology {
 		// cluster.shutdown();
 	}
 
-	public static void SetRemoteTopology(String streamName) throws AlreadyAliveException, InvalidTopologyException {
+	public static void SetRemoteTopology(String streamName) throws AlreadyAliveException, InvalidTopologyException, TopologyAssignException {
 		TopologyBuilder builder = new TopologyBuilder();
 
 		Map conf = new HashMap();
 
-		SetBuilder(builder, conf);
+		setBuilder(builder, conf);
 
 		conf.put(Config.STORM_CLUSTER_MODE, "distributed");
 
 		StormSubmitter.submitTopology(streamName, conf, builder.createTopology());
 	}
 
-	public static void SetDPRCTopology() throws AlreadyAliveException, InvalidTopologyException {
+	public static void SetDPRCTopology() throws AlreadyAliveException, InvalidTopologyException, TopologyAssignException {
 		LinearDRPCTopologyBuilder builder = new LinearDRPCTopologyBuilder("exclamation");
 
 		builder.addBolt(new TotalCount(), 3);
