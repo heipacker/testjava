@@ -12,6 +12,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class TestJava {
 	
+	private TestJava(){
+		
+	}
+	
+	public static TestJava newInstance(){
+		return new TestJava();
+	}
+	
 	public static void main(String arg[]){
 		testAtomicInteger();
 		//testClassA();
