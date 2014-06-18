@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import test.dlmu.hibernate.model.Event;
@@ -42,10 +43,11 @@ public class TestHibernate {
 	}
 	
 	void save(){
-		session.beginTransaction();
+		Transaction transaction = session.getTransaction();
+		transaction.begin();
 		session.save(new Event("Our very first event!", new Date() ) );
 		session.save(new Event("A follow up event", new Date() ) );
-		session.getTransaction().commit();
+		transaction.commit();
 	}
 	
 	void close(){

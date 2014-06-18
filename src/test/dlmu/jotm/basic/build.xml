@@ -1,0 +1,57 @@
+<!-- $Id: build.xml,v 1.12 2005-06-08 22:32:24 tonyortiz Exp $ -->
+<!-- @author: Christophe Ney - Lutris Technologies cney@batisseurs.com -->
+
+<project name="Basic Example" default="run.jrmp">
+  <property name="lib" value="${basedir}/../../lib"/>
+  <property name="src" value="${basedir}/."/>
+
+  <target name="init" >
+	<available file="${lib}" type="dir" property="local.lib.present"/>
+	<antcall target="checklib"/>
+  </target>
+
+  <target name="checklib" unless="local.lib.present">
+	<fail message="Examples are to run in the distribution (dist folder)"/>
+  </target>
+
+  <target name="compile" depends="init">
+	<javac srcdir="${src}">
+	  <classpath>
+        <fileset dir="${lib}">
+          <include name="ow2-jta-1.1-spec.jar"/>
+        </fileset>
+	  </classpath>
+	</javac>
+  </target>
+
+  <target name="run.jrmp" depends="compile,init"
+          description="--> run the example on RMI/JRMP">
+	<java classname="BasicExample" fork="yes" failonerror="yes">
+	  <arg value="UserTransaction"/>
+	  <jvmarg value="-Djava.naming.factory.initial=org.ow2.carol.jndi.spi.MultiOrbInitialContextFactory"/>
+	  <jvmarg value="-Djava.naming.provider.url=rmi://localhost:1099"/>
+	  <classpath>
+        <pathelement location="${basedir}"/>
+        <fileset dir="${lib}">
+          <include name="jotm-client.jar"/>
+        </fileset>
+	  </classpath>
+	</java>
+  </target>
+
+  <target name="run.iiop" depends="compile,init"
+	      description="--> run the example on RMI/IIOP">
+	<java classname="BasicExample" fork="yes" failonerror="yes">
+	  <arg value="UserTransaction"/>
+	  <jvmarg value="-Djava.naming.factory.initial=org.ow2.carol.jndi.spi.MultiOrbInitialContextFactory"/>
+	  <jvmarg value="-Djava.naming.provider.url=iiop://localhost:1196"/>
+	  <classpath>
+        <pathelement location="${basedir}"/>
+        <fileset dir="${lib}">
+          <include name="jotm-client.jar"/>
+        </fileset>
+	  </classpath>
+	</java>
+  </target>
+
+</project>

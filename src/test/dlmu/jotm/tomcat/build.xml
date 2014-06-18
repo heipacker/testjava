@@ -1,0 +1,56 @@
+<!-- $Id$ -->
+
+<project name="Tomcat example" default="war">
+
+  <property name="lib" value="${basedir}/../../lib"/>
+  <property name="src" value="${basedir}/src"/>
+  <property name="output" value="${basedir}/output"/>
+
+  <!-- Set here the correct values for your JDBC driver -->
+  <property name="driverdir" value="${basedir}"/>
+  <property name="drivername" value="mysql-connector-java-5.1.6-bin.jar"/>
+
+  <target name="init">
+    <!-- use externals if lib not available -->
+    <condition property="lib" value="${basedir}/../../externals">
+      <not>
+        <available file="${lib}" />
+      </not>
+    </condition>
+    <mkdir dir="${output}"/>
+  </target>
+
+  <target name="compile" depends="init"
+    description="--> compile the example">
+    <javac 
+      debug="true"
+      srcdir="${src}" destdir="${output}">
+      <classpath>
+        <pathelement location="${lib}/ow2-jta-1.1-spec.jar"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="war" depends="compile"
+    description="--> create a war file">
+    <war destfile="${output}/dbtest.war" webxml="${basedir}/web.xml">
+      <fileset dir="${basedir}">
+  	    <include name="**/*.jsp" />
+      </fileset>
+      <metainf dir="${basedir}">
+        <include name="context.xml" />
+      </metainf>
+      <classes dir="${output}">
+	    <include name="foo/DBTest.class" />
+      </classes>
+      <lib dir="${driverdir}">
+        <include name="${drivername}" />
+      </lib>
+    </war>
+  </target>
+
+  <target name="clean" depends="init"
+    description="--> clean generated files">
+    <delete dir="${output}"/>
+  </target>
+</project>

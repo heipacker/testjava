@@ -21,7 +21,12 @@ public class TestJava {
 	}
 	
 	public static void main(String arg[]){
-		testAtomicInteger();
+		testSplit();
+		//testLength();
+		//testArray();
+		//testVargs();
+		//testTypeCast();
+		//testAtomicInteger();
 		//testClassA();
 		//testLong();
 		//System.out.println(TestJava.class.getSimpleName());
@@ -29,6 +34,61 @@ public class TestJava {
 		//System.out.println(stringifyException(new RuntimeException()));
 		//throw new RuntimeException();
 	}
+	
+	public static void testSplit(){
+		String paramsString = "(name=portName,optype=between,value=[1,2][3,5][7,8][9,10][11,15]),(name=portName,optype=between,value=[1,2][3,5][7,8][9,10][11,15])";
+		String tempArray[] = paramsString.split("\\),\\(");
+		System.out.println(tempArray.length);
+	}
+	
+	public static void testLength(){
+		System.out.println("云".getBytes().length);
+		System.out.println("云南省".getBytes().length);
+		System.out.println("云南省楚雄".getBytes().length);
+		System.out.println("云南省楚雄州地方海事局".getBytes().length);
+	}
+	
+	public static void testArray(){
+		int[] arrays = {1, 2};
+		testArray__(arrays);
+		for(int i:arrays){
+			System.out.println(i);
+		}
+	}
+	
+	static void testArray__(int[] arrays){
+		arrays[0] = 2;
+	}
+	
+	static void testVargs___(int... vargs){
+		
+		if(vargs==null){
+			System.out.println("--------null-------");
+		}
+		System.out.println(vargs.getClass());
+		System.out.println(vargs.length);
+	}
+	
+	public static void testVargs(){
+		testVargs___();
+		testVargs___(1);
+		testVargs___(1,2,3);
+	}
+	
+	public static void testTypeCast(){
+		Object[] a = new Object[1];
+		try {
+			a[0] = Base1Impl.class.newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Base1[] b = (Base1[]) a;
+	}
+	
 	public static void testAtomicInteger(){
 		AtomicInteger a = new AtomicInteger(0);
 		AtomicInteger b = new AtomicInteger(0);

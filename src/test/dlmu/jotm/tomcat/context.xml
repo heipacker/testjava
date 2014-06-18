@@ -1,0 +1,18 @@
+<Context reloadable="true" >
+
+  <Resource name="jdbc/myDB" 
+        auth="Container" 
+        type="javax.sql.DataSource"
+        factory="org.objectweb.jotm.datasource.DataSourceFactory"
+        driverClassName="com.mysql.jdbc.Driver"
+        username="mojo" password="jojo" 
+        url="jdbc:mysql://localhost/javatest" />
+
+  <Resource name="UserTransaction" 
+            auth="Container" 
+            type="javax.transaction.UserTransaction" />
+
+  <Transaction factory="org.objectweb.jotm.UserTransactionFactory" 
+               jotm.timeout="60" />
+
+</Context>

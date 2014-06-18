@@ -25,6 +25,17 @@
 			</plugin>
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>java</id>
+			<name>java official repository</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+	</repositories>
+	<properties>
+        <spring.version>3.1.2.RELEASE</spring.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
@@ -36,6 +47,84 @@
 			<artifactId>quartz-jobs</artifactId>
 			<version>2.2.1</version>
 		</dependency>
+ 		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jta</artifactId>
+			<version>3.9.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jdbc</artifactId>
+			<version>3.9.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-hibernate3</artifactId>
+			<version>3.9.3</version>
+		</dependency>
+        <!-- <dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-essentials-all</artifactId>
+			<version>3.6.4</version>
+		</dependency> -->
+            
+		<dependency>
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-web</artifactId>  
+            <version>${spring.version}</version>  
+            <type>jar</type>  
+            <scope>compile</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-webmvc</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>
+		<dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-core</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-beans</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-aop</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-tx</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>
+		<dependency>
+			<groupId>jotm</groupId>
+			<artifactId>jotm</artifactId>
+			<version>2.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms-api</artifactId>
+			<version>1.1-rev-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.jotm</groupId>
+			<artifactId>jotm-jms</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+		<dependency>
+	        <groupId>com.experlog</groupId>
+	        <artifactId>xapool</artifactId>
+	        <version>1.4</version>
+	    </dependency>
 		<dependency>
 		  <groupId>com.microsoft.sqlserver</groupId>
 		  <artifactId>sqljdbc4</artifactId>

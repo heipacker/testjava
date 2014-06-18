@@ -1,0 +1,57 @@
+<!-- $Id: build.xml,v 1.7 2004-01-24 00:11:38 tonyortiz Exp $ -->
+<!-- @author: Christophe Ney - Lutris Technologies cney@batisseurs.com -->
+
+<project name="JMS Example" default="run.jms">
+
+  <property name="lib" value="${basedir}/../../lib"/>
+  <property name="src" value="${basedir}"/>
+
+  <target name="init">
+	<available file="${lib}" type="dir" property="local.lib.present"/>
+	<antcall target="checklib"/>
+  </target>
+
+  <target name="clean">
+    <delete>
+      <fileset dir="." includes="*.class" />
+    </delete>
+  </target>
+
+  <target name="checklib" unless="local.lib.present">
+	<fail message="Examples are to run in the distribution (dist folder)"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the example">
+    <javac srcdir="${src}" debug="on">
+      <classpath>
+        <fileset dir="${lib}">
+          <include name="ow2-jta-1.1-spec.jar"/>
+          <include name="geronimo-jms_1.1_spec.jar"/>
+          <include name="jotm-jms.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="run.jms" depends="compile,init" description="run JMS example">
+    <java classname="SimpleJmsXa" fork="yes" failonerror="yes">
+      <jvmarg value="-Dfr.dyade.aaa.agent.A3CONF_DIR=."/>
+      <jvmarg value="-Djava.naming.factory.initial=org.ow2.carol.jndi.spi.MultiOrbInitialContextFactory"/>
+      <jvmarg value="-Djava.naming.provider.url=rmi://localhost:1099"/>
+      <classpath>
+        <pathelement location="${basedir}"/>
+        <fileset dir="${lib}">
+		  <include name="jotm-client.jar"/>
+          <include name="jotm-jms.jar"/>
+          <include name="geronimo-jms_1.1_spec.jar"/>
+          <include name="joram-client.jar"/>
+          <include name="joram-shared.jar"/>
+          <include name="joram-mom.jar"/>
+          <include name="jcup.jar"/>
+          <include name="monolog.jar"/>
+        </fileset>
+      </classpath>
+    </java>
+  </target>
+
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+ <!DOCTYPE web-app PUBLIC
+	"-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+	"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <resource-env-ref>
+    <description>
+      DB Connection
+    </description>
+    <resource-env-ref-name>
+      jdbc/myDB
+    </resource-env-ref-name>
+    <resource-env-ref-type>
+      javax.sql.DataSource
+    </resource-env-ref-type>
+  </resource-env-ref>
+</web-app>

@@ -1,0 +1,28 @@
+<!-- $Id$ -->
+
+<project name="JDBC example" default="compile">
+
+  <property name="lib" value="${basedir}/../../lib"/>
+  <property name="src" value="${basedir}"/>
+
+  <target name="init" >
+	<available file="${lib}" type="dir" property="local.lib.present"/>
+	<antcall target="checklib"/>
+  </target>
+
+  <target name="checklib" unless="local.lib.present">
+	<fail message="Examples are to run in the distribution (dist folder)"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the example">
+    <javac srcdir="${src}">
+      <classpath>
+        <fileset dir="${lib}">
+          <include name="ow2-jta-1.1-spec.jar"/>
+          <include name="jotm-core.jar"/>
+          <include name="xapool.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+</project>
