@@ -2,8 +2,10 @@ package test.dlmu.testjava;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.charset.Charset;
 import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 测试java反射调用类的静态方法
@@ -21,7 +23,10 @@ public class TestJava {
 	}
 	
 	public static void main(String arg[]){
-		testSplit();
+		testStringSize();
+		//testAppBaseObject();
+		//testNaN();
+		//testSplit();
 		//testLength();
 		//testArray();
 		//testVargs();
@@ -33,6 +38,55 @@ public class TestJava {
 		//System.out.println(classNameBase(TestJava.class.getName()));
 		//System.out.println(stringifyException(new RuntimeException()));
 		//throw new RuntimeException();
+	}
+	
+	public static void testStringSize(){
+		
+		System.out.println(Charset.defaultCharset().name());
+		String tt = new String("英");
+		char ttt = '英';
+		
+		try {
+			System.out.println(tt.getBytes("utf-8").length);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(ttt);
+		
+		try {
+			System.out.println(new String(charToByte(ttt),"utf-8"));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static byte[] charToByte(char c) {
+        byte[] b = new byte[3];
+        b[0] = (byte) ((c & 0xFF0000) >> 16);
+        System.out.println(b[0]);
+        b[1] = (byte) ((c & 0xFF00) >> 8);
+        System.out.println(b[1]);
+        b[2] = (byte) (c & 0xFF);
+        System.out.println(b[2]);
+        
+        return b;   
+    } 
+	
+	public static void testAppBaseObject(){
+		System.out.println(AppBaseObject.class.getName());
+		AppBaseObject appBaseObject = new AppBaseObject();
+		System.out.println(appBaseObject.getName());
+	}
+	
+	public static void testNaN(){
+		double i = Double.NaN;
+		System.out.println(i);
+	}
+	
+	public static void testProtected(){
+		System.out.println(new TestProtected().t);//protected成员同一个包也不能访问
 	}
 	
 	public static void testSplit(){
