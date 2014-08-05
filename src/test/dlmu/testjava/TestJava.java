@@ -6,6 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 测试java反射调用类的静态方法
@@ -22,14 +24,47 @@ public class TestJava {
 		return new TestJava();
 	}
 	
+	public static class Person<T>{
+		private T[] array;
+		
+		public Person(){
+			array = (T[]) new Object[10];
+		}
+		
+		public void add(T a){
+			array[0] = a;
+		}
+		
+		public T get(){
+			return array[0];
+		}
+		
+		public int length(){
+			return array.length;
+		}
+	}
+	
+	public static void testArrayGeneric(){
+		Person<String> person = new Person<String>();
+		person.add("1212");
+		System.out.println((String) person.get());
+		System.out.println(person.length());
+		Object[] arr = new Long[10];
+		Long[] larr = (Long[]) new Object[10];
+		//System.out.println(larr.length);
+		//System.out.println(person.array.length);
+	}
+	
 	public static void main(String arg[]){
-		testStringSize();
+		//testArrayList();
+		//testArrayGeneric();
+		//testStringSize();
 		//testAppBaseObject();
 		//testNaN();
 		//testSplit();
 		//testLength();
 		//testArray();
-		//testVargs();
+		testVargs();
 		//testTypeCast();
 		//testAtomicInteger();
 		//testClassA();
@@ -38,6 +73,71 @@ public class TestJava {
 		//System.out.println(classNameBase(TestJava.class.getName()));
 		//System.out.println(stringifyException(new RuntimeException()));
 		//throw new RuntimeException();
+	}
+	public class Foo {
+	    // Factory. Should create an instance of 
+	    // whatever class it is declared in.
+	    public Foo create() {
+			return null;
+	    }
+	}
+
+	public class Bar extends Foo {
+	    // Actually creates a Bar.
+	    public Bar create() {
+			return null;
+	    }
+	}
+	
+	public class Baz extends Bar {
+	    // Actually creates a Baz.
+	    /*public Foo create() {
+			return null;
+	    }*/
+	}
+	
+	public static void testArrayList(){
+		ArrayList[] p = new ArrayList[10];
+		System.out.println(p.length);
+	}
+	
+	static class Collections {
+	    public static <T, S extends T> void copy(List<T> dest, List<S> src) {
+	    	dest.addAll(src);
+	    }
+	    
+	    public static <T> void copy1(List<T> dest, List<? extends T> src) {
+	    	dest.addAll(src);
+	    }
+	}
+	static List<List<? extends String>> history = new ArrayList<List<? extends String>>();
+
+	public void drawAll(List<? extends String> shapes) {
+	    history.add(shapes);
+	    history.add(new ArrayList<String>());
+	    for (String s: shapes) {
+	        //s.draw(this);
+	    }
+	}
+	
+	public static void testGenericList() {
+		// OK, array of unbounded wildcard type.
+		List<?>[] lsa = new List<?>[10];
+		Object o = lsa;
+		Object[] oa = (Object[]) o;
+		List<Integer> li = new ArrayList<Integer>();
+		li.add(new Integer(3));
+		// Correct.
+		oa[1] = li;
+		// Run time error, but cast is explicit.
+		String s = (String) lsa[1].get(0);
+		
+		//List<?>[] stringListArrays = new List<String>[10];
+	}
+	public static void testNull2Integer(){
+		Integer intg = (Integer)null;
+		
+		System.out.println(intg.intValue());
 	}
 	
 	public static void testStringSize(){
@@ -127,6 +227,7 @@ public class TestJava {
 		testVargs___();
 		testVargs___(1);
 		testVargs___(1,2,3);
+		testVargs___((int[])null);//(int[])null被
 	}
 	
 	public static void testTypeCast(){
